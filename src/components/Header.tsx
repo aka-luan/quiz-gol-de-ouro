@@ -3,9 +3,8 @@ import Link from "next/link"
 
 function Header() {
   return (
-    <nav className="flex font-bold w-full px-10 py-4">
-      <p className="font-bold text-lg">⚽ Quiz Bola de Ouro</p>
-      <ul className="flex gap-4 ml-auto">
+    <nav className="flex font-bold w-full px-4 py-4">
+      <ul className="flex gap-4 mx-auto font-sans uppercase">
         <li>
           <Link href="/">Início</Link>
         </li>

@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-br'>
-      <body>
+      <body className='bg-gradient-app !important'>
         <div>
           <Header />
           <div className='mx-auto p-4'>{children}</div>

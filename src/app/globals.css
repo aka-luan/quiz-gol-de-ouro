@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* =========================
+   THEME TOKENS (Tailwind v4)
+   ========================= */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand palette (from the mock) */
+  --color-deep: #0B2F28;
+  --color-surface-1: #0F3F36;
+  --color-surface-2: #145347;
+
+  --color-text-primary: #EAF7F1;
+  --color-text-secondary: #B8D7CB;
+
+  --color-primary-500: #10B981;       /* action green */
+  --color-accent-amber-400: #F6C74D;  /* gold light  */
+  --color-accent-amber-500: #E9B23E;  /* gold mid    */
+  --color-accent-amber-600: #D39B2F;  /* gold dark   */
+
+  --color-success-500: #34D399;
+  --color-danger-500: #EF4444;
+  --color-danger-600: #DC2626;
+  --color-warning-500: #F59E0B;
+
+  --color-border-subtle: #0F5A4C;
+
+  /* Typography */
+  --font-display: Montserrat, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Radius scale: enables rounded-2xl / rounded-3xl to match the mock */
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+
+  /* Shadows: creates shadow-card / shadow-elevated utilities */
+  --shadow-card: 0 8px 24px rgba(0,0,0,.25);
+  --shadow-elevated: 0 6px 16px rgba(0,0,0,.28);
 }
 
-@media (prefers-color-scheme: dark) {
+/* =========================
+   LIGHT / DARK CONTEXT
+   ========================= */
+:root {
+  /* tailored for “dark-first” app with graceful light fallback */
+  --background: linear-gradient(to bottom right, #0F6A52, #0B4B45);;            /* bg-deep */
+  --foreground: var(--color-text-primary);
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
   }
+}
+
+/* =========================
+   GLOBAL BASE
+   ========================= */
+html, body, #__next {
+  height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* =========================
+   CUSTOM UTILITIES (v4)
+   ========================= */
+
+/* App background gradient (green → petrol) */
+@utility bg-gradient-app {
+  background-image: linear-gradient(to bottom right, #0F6A52, #0B4B45);
+}
+
+/* Primary CTA button gradient (gold) */
+@utility bg-gradient-button {
+  background-image: linear-gradient(to right, #F6C74D, #D39B2F);
+}
+
+/* Progress fill gradient (gold → green) */
+@utility bg-gradient-progress {
+  background-image: linear-gradient(to right, #F6C74D, #10B981);
+}
+
+/* Glass card surface used across screens */
+@utility card-surface {
+  background-color: color-mix(in oklab, var(--color-surface-1) 92%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 85%);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* Pill badges (category / difficulty) */
+@utility badge {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  background-color: color-mix(in oklab, var(--color-surface-2), transparent 10%);
+  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 80%);
+  color: var(--color-text-primary);
+}
+
+/* Focus ring consistent with brand */
+@utility focus-brand {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px color-mix(in oklab, white, transparent 100%),
+    0 0 0 4px var(--color-primary-500);
 }
