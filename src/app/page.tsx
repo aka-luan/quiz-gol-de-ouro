@@ -15,7 +15,7 @@ const page = () => {
       <p className='text-xl'>
         Teste seus conhecimentos sobre futebol, ganhe XP, suba de nível e desbloqueie conquista!
       </p>
-      <Button className="text-xl bg-gradient-button font-medium flex items-center justify-center gap-2 shadow-elevated hover:scale-[1.02] active:scale-[0.98] transition" variant='primary' onClick={() => router.push('/quiz')}>
+      <Button className="text-xl bg-gradient-button font-medium flex items-center justify-center gap-2 shadow-elevated hover:scale-[1.02] active:scale-[0.98] transition" onClick={() => router.push('/quiz')}>
         <CirclePlay />Jogar Agora
       </Button>
       <div className='w-full p-4 rounded-2xl bg-surface-1 card-surface shadow-elevated border border-surface-2'>

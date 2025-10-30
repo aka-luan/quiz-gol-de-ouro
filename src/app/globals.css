@@ -81,6 +81,15 @@ body {
   background-image: linear-gradient(to right, #F6C74D, #D39B2F);
 }
 
+/* Right answer button gradient (green) */
+@utility bg-gradient-right-answer {
+  background-image: linear-gradient(90deg,rgba(15, 113, 57, 1) 0%, rgba(0, 75, 52, 1) 90%)                                             
+}
+/* Wrong answerbutton gradient (red) */
+@utility bg-gradient-wrong-answer {
+  background-image: linear-gradient(90deg,rgba(161, 39, 38, 1) 0%, rgba(116, 29, 35, 1) 85%);                                            
+}
+
 /* Progress fill gradient (gold → green) */
 @utility bg-gradient-progress {
   background-image: linear-gradient(to right, #F6C74D, #10B981);
