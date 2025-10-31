@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import './globals.css';
+import AnimatedLayout from '@/components/AnimatedLayout';
 
 export default function RootLayout({
   children,
@@ -11,7 +12,7 @@ export default function RootLayout({
       <body className='bg-gradient-app !important'>
         <div>
           <Header />
-          <div className='mx-auto p-4'>{children}</div>
+          <AnimatedLayout>{children}</AnimatedLayout>
         </div>
       </body>
     </html>
