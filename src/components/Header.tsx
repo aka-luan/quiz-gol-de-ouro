@@ -1,5 +1,4 @@
-
-import Link from "next/link"
+import Link from "next/link";
 
 function Header() {
   return (
@@ -19,7 +18,7 @@ function Header() {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
-export default Header
+export default Header;

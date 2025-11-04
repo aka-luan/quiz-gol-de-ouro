@@ -5,24 +5,24 @@
    ========================= */
 @theme inline {
   /* Brand palette (from the mock) */
-  --color-deep: #0B2F28;
-  --color-surface-1: #0F3F36;
+  --color-deep: #0b2f28;
+  --color-surface-1: #0f3f36;
   --color-surface-2: #145347;
 
-  --color-text-primary: #EAF7F1;
-  --color-text-secondary: #B8D7CB;
+  --color-text-primary: #eaf7f1;
+  --color-text-secondary: #b8d7cb;
 
-  --color-primary-500: #10B981;       /* action green */
-  --color-accent-amber-400: #F6C74D;  /* gold light  */
-  --color-accent-amber-500: #E9B23E;  /* gold mid    */
-  --color-accent-amber-600: #D39B2F;  /* gold dark   */
+  --color-primary-500: #10b981; /* action green */
+  --color-accent-amber-400: #f6c74d; /* gold light  */
+  --color-accent-amber-500: #e9b23e; /* gold mid    */
+  --color-accent-amber-600: #d39b2f; /* gold dark   */
 
-  --color-success-500: #34D399;
-  --color-danger-500: #EF4444;
-  --color-danger-600: #DC2626;
-  --color-warning-500: #F59E0B;
+  --color-success-500: #34d399;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-warning-500: #f59e0b;
 
-  --color-border-subtle: #0F5A4C;
+  --color-border-subtle: #0f5a4c;
 
   /* Typography */
   --font-display: Montserrat, ui-sans-serif, system-ui, sans-serif;
@@ -34,8 +34,8 @@
   --radius-3xl: 24px;
 
   /* Shadows: creates shadow-card / shadow-elevated utilities */
-  --shadow-card: 0 8px 24px rgba(0,0,0,.25);
-  --shadow-elevated: 0 6px 16px rgba(0,0,0,.28);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-elevated: 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
 /* =========================
@@ -43,7 +43,11 @@
    ========================= */
 :root {
   /* tailored for “dark-first” app with graceful light fallback */
-  --background: linear-gradient(to bottom right, #0F6A52, #0B4B45);;            /* bg-deep */
+  --background: linear-gradient(
+    to bottom right,
+    #0f6a52,
+    #0b4b45
+  ); /* bg-deep */
   --foreground: var(--color-text-primary);
 }
 
@@ -57,7 +61,9 @@
 /* =========================
    GLOBAL BASE
    ========================= */
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
 }
 
@@ -73,34 +79,47 @@ body {
 
 /* App background gradient (green → petrol) */
 @utility bg-gradient-app {
-  background-image: linear-gradient(to bottom right, #0F6A52, #0B4B45);
+  background-image: linear-gradient(to bottom right, #0f6a52, #0b4b45);
 }
 
 /* Primary CTA button gradient (gold) */
 @utility bg-gradient-button {
-  background-image: linear-gradient(to right, #F6C74D, #D39B2F);
+  background-image: linear-gradient(to right, #f6c74d, #d39b2f);
 }
 
 /* Right answer button gradient (green) */
 @utility bg-gradient-right-answer {
-  background-image: linear-gradient(90deg,rgba(15, 113, 57, 1) 0%, rgba(0, 75, 52, 1) 90%)                                             
+  background-image: linear-gradient(
+    90deg,
+    rgba(15, 113, 57, 1) 0%,
+    rgba(0, 75, 52, 1) 90%
+  );
 }
 /* Wrong answerbutton gradient (red) */
 @utility bg-gradient-wrong-answer {
-  background-image: linear-gradient(90deg,rgba(161, 39, 38, 1) 0%, rgba(116, 29, 35, 1) 85%);                                            
+  background-image: linear-gradient(
+    90deg,
+    rgba(161, 39, 38, 1) 0%,
+    rgba(116, 29, 35, 1) 85%
+  );
 }
 
 /* Progress fill gradient (gold → green) */
 @utility bg-gradient-progress {
-  background-image: linear-gradient(to right, #F6C74D, #10B981);
+  background-image: linear-gradient(to right, #f6c74d, #10b981);
 }
 
 /* Glass card surface used across screens */
 @utility card-surface {
-  background-color: color-mix(in oklab, var(--color-surface-1) 92%, transparent);
+  background-color: color-mix(
+    in oklab,
+    var(--color-surface-1) 92%,
+    transparent
+  );
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 85%);
+  border: 1px solid
+    color-mix(in oklab, var(--color-border-subtle), transparent 85%);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
 }
@@ -109,8 +128,13 @@ body {
 @utility badge {
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
-  background-color: color-mix(in oklab, var(--color-surface-2), transparent 10%);
-  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 80%);
+  background-color: color-mix(
+    in oklab,
+    var(--color-surface-2),
+    transparent 10%
+  );
+  border: 1px solid
+    color-mix(in oklab, var(--color-border-subtle), transparent 80%);
   color: var(--color-text-primary);
 }
 

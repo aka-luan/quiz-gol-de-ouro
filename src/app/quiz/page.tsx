@@ -1,6 +1,6 @@
-'use client';
-import Button from "@/components/Button"
-import Progress from "@/components/Progress"
+"use client";
+import Button from "@/components/Button";
+import Progress from "@/components/Progress";
 import { Clock } from "lucide-react";
 function quiz() {
   return (
@@ -49,7 +49,7 @@ function quiz() {
         <p>Tempo: 15s</p>
       </div>
     </main>
-  )
+  );
 }
 
-export default quiz
+export default quiz;

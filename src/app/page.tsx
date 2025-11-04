@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-"use client"
-import Button from "@/components/Button"
+"use client";
+import Button from "@/components/Button";
 import {
   Star,
   Trophy,
@@ -8,11 +8,11 @@ import {
   Flame,
   Gamepad2,
   CirclePlay,
-} from "lucide-react"
-import { useRouter } from "next/navigation"
+} from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <main className="flex flex-col items-center justify-center gap-8 bg-deep pt-16 pb-10 px-8 rounded-3xl border border-surface-1 shadow-card max-w-xl mx-auto">
@@ -53,7 +53,7 @@ const page = () => {
         </ul>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;
