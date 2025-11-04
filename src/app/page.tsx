@@ -15,10 +15,10 @@ const page = () => {
   const router = useRouter();
 
   return (
-    <main className="flex flex-col items-center justify-center gap-8 bg-deep pt-16 pb-10 px-8 rounded-3xl border border-surface-1 shadow-card max-w-xl mx-auto">
-      <div className="flex gap-4 items-center justify-center">
-        <Trophy className="w-22 h-22 text-accent-amber-500" />
-        <h1 className="text-5xl font-medium font-display">
+    <main className="bg-deep border-surface-1 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-8 rounded-3xl border px-8 pt-16 pb-10">
+      <div className="flex items-center justify-center gap-4">
+        <Trophy className="text-accent-amber-500 h-22 w-22" />
+        <h1 className="font-display text-5xl font-medium">
           Quiz Gol <br /> de Ouro
         </h1>
       </div>
@@ -27,13 +27,13 @@ const page = () => {
         desbloqueie conquista!
       </p>
       <Button
-        className="text-xl bg-gradient-button font-medium flex items-center justify-center gap-2 shadow-elevated hover:scale-[1.02] active:scale-[0.98] transition"
+        className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 text-xl font-medium transition hover:scale-[1.02] active:scale-[0.98]"
         onClick={() => router.push("/quiz")}>
         <CirclePlay />
         Jogar Agora
       </Button>
-      <div className="w-full p-4 rounded-2xl bg-surface-1 card-surface shadow-elevated border border-surface-2">
-        <ul className="flex flex-col text-xl gap-2 font-mono">
+      <div className="bg-surface-1 card-surface shadow-elevated border-surface-2 w-full rounded-2xl border p-4">
+        <ul className="flex flex-col gap-2 font-mono text-xl">
           <li className="flex gap-3">
             <Star color="#E9B23E" />
             Nível: Craque
