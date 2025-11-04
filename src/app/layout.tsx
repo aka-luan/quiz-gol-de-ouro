@@ -1,18 +1,16 @@
 import Header from "@/components/Header";
 import "./globals.css";
-import AnimatedLayout from "@/components/AnimatedLayout";
+import PageTransitionEffect from "@/app/PageTransitionEffect";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const PageTransitionLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="pt-br">
       <body className="bg-gradient-app!">
         <Header />
-        <AnimatedLayout>{children}</AnimatedLayout>
+        <PageTransitionEffect>{children}</PageTransitionEffect>
       </body>
     </html>
   );
-}
+};
+
+export default PageTransitionLayout;
