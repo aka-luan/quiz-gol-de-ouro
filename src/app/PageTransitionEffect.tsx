@@ -43,6 +43,6 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
       </motion.div>
     </AnimatePresence>
   );
-};
+};  
 
 export default PageTransitionEffect;

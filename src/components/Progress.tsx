@@ -4,7 +4,13 @@ type ProgressProps = {
 };
 
 function Progress({ max, value }: ProgressProps) {
-  return <progress className="w-full" value={value} max={max}></progress>;
+  return (
+    <div className="w-full rounded-full">
+      <div
+        className="bg-gradient-progress h-2 rounded-full"
+        style={{ width: `${(value / max) * 100}%` }}></div>
+    </div>
+  );
 }
 
 export default Progress;

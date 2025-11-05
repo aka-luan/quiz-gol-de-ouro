@@ -4,7 +4,7 @@ import Progress from "@/components/Progress";
 import { Clock } from "lucide-react";
 function quiz() {
   return (
-    <main className="bg-surface-1 border-surface-2 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-6 rounded-3xl border px-8 pt-16 pb-10">
+    <main className="bg-surface-1 border-surface-2 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-6 rounded-3xl border px-8 py-10">
       <div className="border-surface-2 w-full border-b pb-4">
         <div className="mb-2 flex justify-between">
           <p>Perguntas 3 / 10</p>

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <nav className="flex font-bold w-full px-4 py-4">
-      <ul className="flex gap-4 mx-auto font-sans uppercase">
+    <nav className="card-surface mb-8 flex w-full px-4 py-4">
+      <ul className="mx-auto flex gap-4 font-mono font-bold uppercase">
         <li>
           <Link href="/">Início</Link>
         </li>

@@ -15,7 +15,7 @@ const page = () => {
   const router = useRouter();
 
   return (
-    <main className="bg-deep border-surface-1 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-8 rounded-3xl border px-8 pt-16 pb-10">
+    <main className="bg-deep card-surface mx-auto flex max-w-xl flex-col items-center justify-center gap-8 px-8 py-10">
       <div className="flex items-center justify-center gap-4">
         <Trophy className="text-accent-amber-500 h-22 w-22" />
         <h1 className="font-display text-5xl font-medium">
