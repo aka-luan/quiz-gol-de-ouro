@@ -1,25 +1,29 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Button from "@/components/Button";
 import Progress from "@/components/Progress";
 import { Clock } from "lucide-react";
 import { useState, useEffect } from "react";
-import { number } from "zod";
 
 type Question = {
   id: number;
   categoria: string;
   pergunta: string;
   opcoes: string[];
-  resposta_certa: string;
+  resposta: string;
   dificuldade: "Fácil" | "Médio" | "Difícil";
 };
 
 function quiz() {
   const [questions, setQuestions] = useState([] as Question[]);
   const [idx, setIdx] = useState(0 as number);
-  const [picked, setPicked] = useState(null as number | null);
+  const [picked, setPicked] = useState(-1 as number);
   const [timer, setTimer] = useState(20 as number);
   const [locked, setLocked] = useState(false as boolean);
+  const [acertos, setAcertos] = useState(0 as number);
+  const [streak, setStreak] = useState(0 as number);
+  const [xpGanho, setXpGanho] = useState(0 as number);
+  const [showResult, setShowResult] = useState(false as boolean)
 
   useEffect(() => {
     fetch("data/questions.json")
@@ -30,15 +34,15 @@ function quiz() {
         });
       });
 
-    let timer = setInterval(() => {
-      setTimer((time) => {
-        if (time === 0) {
-          clearInterval(timer);
-          return 0;
-        } else return time - 1;
-      });
-    }, 1000);
-  }, []);
+    // const timer = setInterval(() => {
+    //   setTimer((time) => {
+    //     if (time === 0) {
+    //       clearInterval(timer);
+    //       return 0;
+    //     } else return time - 1;
+    //   });
+    // }, 1000);
+  }, [showResult]);
 
   function getRandomQuestionsIndex(questionsLength: number) {
     const indexes = [] as number[];
@@ -54,9 +58,38 @@ function quiz() {
 
   function pickAnswer(index: number) {
     if (locked) return;
-    console.log(index);
+
     setPicked(index);
     setLocked(true);
+
+    const alternativa = questions[idx].opcoes[index]
+    const resposta = questions[idx].resposta
+    
+    if (alternativa === resposta) {
+      console.log('resposta certa')
+      setAcertos(() => acertos+1)
+      setStreak(() => streak+1)
+    } else {
+      
+      setStreak(() => 0)
+    }
+  }
+
+  function onClickNext() {
+    setIdx(() => idx+1)
+
+    if (idx >= questions.length) {
+      setShowResult(true)
+
+      return
+    }
+
+    resetQuestion()
+  }
+  
+  function resetQuestion() {
+    setPicked(-1)
+    setLocked(false)
   }
 
   return (
@@ -64,8 +97,8 @@ function quiz() {
       <div className="border-surface-2 w-full border-b pb-4">
         <div className="mb-2 flex justify-between">
           <p>Pergunta {idx + 1} / 10</p>
-          <p>XP: 80</p>
-          <p>Streak: 4</p>
+          <p>XP: {xpGanho}</p>
+          <p>Streak: {streak}</p>
         </div>
         <Progress max={10} value={3} />
       </div>
@@ -79,13 +112,27 @@ function quiz() {
         {questions[idx]?.pergunta}
       </h2>
       <div className="flex w-full flex-col gap-2">
-        {questions[idx]?.opcoes.map((opcao, index) => {
+        {questions[idx]?.opcoes.map((option, index) => {
+          let className = "bg-deep"
+
+          if (locked) {
+            const resposta = questions[idx].resposta
+            const respostaIndex = questions[idx].opcoes.indexOf(resposta)
+
+            if (respostaIndex === index ) {
+              className = "bg-gradient-right-answer"
+            } else if (picked === index) {
+              className = "bg-gradient-wrong-answer"
+            } else {
+              className = "bg-deep opacity-60 saturate-50"
+            }
+          }
           return (
             <Button
-              className={`${picked === index ? "bg-gradient-selected" : "bg-deep"} border-surface-1 text-text-primary px-6 text-left text-xl font-medium`}
+              className={`${className} border-surface-1 text-text-primary px-6 text-left text-xl font-medium`}
               onClick={() => pickAnswer(index)}
               key={index}>
-              {opcao}
+              {option}
             </Button>
           );
         })}
@@ -111,14 +158,14 @@ function quiz() {
         </Button> */}
       </div>
       <div className="flex w-full items-center justify-between gap-2">
-        <div className="flex w-1/2 gap-2 px-4">
+        <div className="flex w-1/2 gap-2 p-4">
           <Clock />
           <p>Tempo: {timer}s</p>
         </div>
-        <div className="w-1/2">
+        <div className={`w-1/2 ${!locked ? "hidden" : ""}`}>
           <Button
-            className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 text-lg font-medium transition hover:scale-[1.02] active:scale-[0.98]"
-            onClick={() => {}}>
+            className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 font-medium transition hover:scale-[1.02] active:scale-[0.98]"
+            onClick={onClickNext}>
             Próxima Pergunta {">"}
           </Button>
         </div>
