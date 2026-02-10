@@ -2,6 +2,7 @@
 "use client";
 import Button from "@/components/Button";
 import Progress from "@/components/Progress";
+import { calculateDifficultyXP, calculateStreakBonusXP } from "@/lib/game";
 import { Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -11,7 +12,7 @@ type Question = {
   pergunta: string;
   opcoes: string[];
   resposta: string;
-  dificuldade: "Fácil" | "Médio" | "Difícil";
+  dificuldade: "fácil" | "médio" | "difícil";
 };
 
 function quiz() {
@@ -66,9 +67,11 @@ function quiz() {
     const resposta = questions[idx].resposta
     
     if (alternativa === resposta) {
+      const dificuldade = questions[idx].dificuldade
       console.log('resposta certa')
       setAcertos(() => acertos+1)
       setStreak(() => streak+1)
+      setXpGanho(() => xpGanho + calculateDifficultyXP(dificuldade) + calculateStreakBonusXP(streak))
     } else {
       
       setStreak(() => 0)
@@ -76,13 +79,14 @@ function quiz() {
   }
 
   function onClickNext() {
-    setIdx(() => idx+1)
-
-    if (idx >= questions.length) {
-      setShowResult(true)
-
-      return
+    if (idx === questions.length) {
+       return
     }
+
+    setIdx(() => idx+1)
+    
+    console.log(idx+1)
+    console.log(questions.length)
 
     resetQuestion()
   }
@@ -105,7 +109,7 @@ function quiz() {
       <div className="flex w-full flex-col gap-6">
         <div className="flex justify-between">
           <p>ICONE Copa do Mundo</p>
-          <p>{questions[idx]?.dificuldade}</p>
+          <p>Dificuldade: <span className="capitalize">{questions[idx]?.dificuldade}</span></p>
         </div>
       </div>
       <h2 className="font-display mb-2 text-4xl font-medium">
