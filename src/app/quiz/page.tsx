@@ -79,16 +79,34 @@ function quiz() {
   }
 
   function onClickNext() {
-    if (idx === questions.length) {
-       return
-    }
+    if (idx === questions.length) return
 
     setIdx(() => idx+1)
     
-    console.log(idx+1)
-    console.log(questions.length)
+
+    if (idx+1 === questions.length) {
+      sendResultsToStorage()
+
+      return
+    }
 
     resetQuestion()
+  }
+
+  function sendResultsToStorage() {
+    const qboBest = localStorage.getItem("qbo_best")
+    const qboXp = localStorage.getItem("qbo_xp")
+    let qboBestInt = 0, qboXpInt = 0
+
+    if (qboBest !== null) qboBestInt = parseInt(qboBest)
+    if (qboXp !== null) qboXpInt = parseInt(qboXp)
+
+    if (acertos > qboBestInt) {
+      localStorage.setItem("qbo_best", `${acertos}`);
+    }
+
+    localStorage.setItem("qbo_xp", `${qboXpInt + xpGanho}`);
+    localStorage.setItem("qbo_results", `${xpGanho}`);
   }
   
   function resetQuestion() {
