@@ -7,6 +7,10 @@ import {
   calculateStreakBonusXP,
   computeLevel,
 } from "@/lib/game";
+import {
+  saveCorrectAnswerProgressToLocalStorage,
+  saveRoundResultToLocalStorage,
+} from "@/lib/storage";
 import { BarChart3, Clock, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -21,13 +25,6 @@ type Question = {
   opcoes: string[];
   resposta: string;
   dificuldade: "fácil" | "média" | "difícil";
-};
-
-type RoundResult = {
-  acertos: number;
-  total: number;
-  xpGanho: number;
-  dataISO: string;
 };
 
 function quiz() {
@@ -107,6 +104,12 @@ function quiz() {
           + calculateDifficultyXP(dificuldade)
           + calculateStreakBonusXP(updatedStreak),
       );
+      saveCorrectAnswerProgressToLocalStorage({
+        streak: updatedStreak,
+        timerLeft: timer,
+        questionIndex: idx,
+        totalQuestions: questions.length,
+      });
     } else {
       setStreak(() => 0);
     }
@@ -114,7 +117,12 @@ function quiz() {
 
   function onClickNext() {
     if (idx + 1 === questions.length) {
-      const updatedXpTotal = sendResultsToStorage();
+      const { xpTotal: updatedXpTotal } = saveRoundResultToLocalStorage({
+        acertos,
+        total: questions.length,
+        xpGanho,
+        dataISO: new Date().toISOString(),
+      });
       setXpTotal(() => updatedXpTotal);
       setShowResults(() => true);
       return;
@@ -123,43 +131,6 @@ function quiz() {
     setIdx((value) => value + 1);
 
     resetQuestion();
-  }
-
-  function sendResultsToStorage() {
-    const qboBest = localStorage.getItem("qbo_best");
-    const qboXp = localStorage.getItem("qbo_xp");
-    const qboResult = localStorage.getItem("qbo_results");
-    let qboBestInt = 0,
-      qboXpInt = 0,
-      qboResultArr = [] as RoundResult[];
-    const resultObj = {
-      acertos,
-      total: questions.length,
-      xpGanho,
-      dataISO: new Date().toISOString(),
-    };
-
-    if (qboBest !== null) qboBestInt = parseInt(qboBest, 10);
-    if (qboXp !== null) qboXpInt = parseInt(qboXp, 10);
-    if (qboResult !== null) {
-      try {
-        qboResultArr = JSON.parse(qboResult) as RoundResult[];
-      } catch {
-        qboResultArr = [] as RoundResult[];
-      }
-    }
-
-    if (acertos > qboBestInt) {
-      localStorage.setItem("qbo_best", `${acertos}`);
-    }
-
-    qboResultArr.push(resultObj);
-    const updatedXpTotal = qboXpInt + xpGanho;
-
-    localStorage.setItem("qbo_xp", `${updatedXpTotal}`);
-    localStorage.setItem("qbo_results", JSON.stringify(qboResultArr));
-
-    return updatedXpTotal;
   }
 
   function startNewRound() {
