@@ -5,6 +5,7 @@ import Progress from "@/components/Progress";
 import { calculateDifficultyXP, calculateStreakBonusXP } from "@/lib/game";
 import { Clock } from "lucide-react";
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Question = {
   id: number;
@@ -12,7 +13,7 @@ type Question = {
   pergunta: string;
   opcoes: string[];
   resposta: string;
-  dificuldade: "fácil" | "médio" | "difícil";
+  dificuldade: "fácil" | "média" | "difícil";
 };
 
 function quiz() {
@@ -24,15 +25,17 @@ function quiz() {
   const [acertos, setAcertos] = useState(0 as number);
   const [streak, setStreak] = useState(0 as number);
   const [xpGanho, setXpGanho] = useState(0 as number);
-  const [showResult, setShowResult] = useState(false as boolean)
+  const [showResult, setShowResult] = useState(false as boolean);
 
   useEffect(() => {
-    fetch("data/questions.json")
+    fetch("/data/questions.json")
       .then((res) => res.json())
       .then((data) => {
+        const roundQuestions = [] as Question[];
         getRandomQuestionsIndex(data.length).forEach((index) => {
-          setQuestions((prevQuestions) => [...prevQuestions, data[index]]);
+          roundQuestions.push(data[index]);
         });
+        setQuestions(() => roundQuestions);
       });
 
     // const timer = setInterval(() => {
@@ -43,7 +46,7 @@ function quiz() {
     //     } else return time - 1;
     //   });
     // }, 1000);
-  }, [showResult]);
+  }, []);
 
   function getRandomQuestionsIndex(questionsLength: number) {
     const indexes = [] as number[];
@@ -63,23 +66,29 @@ function quiz() {
     setPicked(index);
     setLocked(true);
 
-    const alternativa = questions[idx].opcoes[index]
-    const resposta = questions[idx].resposta
-    
+    const alternativa = questions[idx].opcoes[index];
+    const resposta = questions[idx].resposta;
+
     if (alternativa === resposta) {
-      const dificuldade = questions[idx].dificuldade
-      console.log('resposta certa')
-      setAcertos(() => acertos+1)
-      setStreak(() => streak+1)
-      setXpGanho(() => xpGanho + calculateDifficultyXP(dificuldade) + calculateStreakBonusXP(streak))
+      const dificuldade = questions[idx].dificuldade;
+      console.log("resposta certa");
+      setAcertos(() => acertos + 1);
+      setStreak(() => streak + 1);
+      setXpGanho(
+        () =>
+          xpGanho
+          + calculateDifficultyXP(dificuldade)
+          + calculateStreakBonusXP(streak),
+      );
     } else {
-      
-      setStreak(() => 0)
+      setStreak(() => 0);
     }
   }
 
   function onClickNext() {
-    if (idx === questions.length) return
+    if (idx + 1 === questions.length) {
+      return
+    }
 
     setIdx(() => idx+1)
     
@@ -110,8 +119,8 @@ function quiz() {
   }
   
   function resetQuestion() {
-    setPicked(-1)
-    setLocked(false)
+    setPicked(-1);
+    setLocked(false);
   }
 
   return (
@@ -122,63 +131,91 @@ function quiz() {
           <p>XP: {xpGanho}</p>
           <p>Streak: {streak}</p>
         </div>
-        <Progress max={10} value={3} />
+        <Progress max={questions.length} value={idx + 1} />
       </div>
-      <div className="flex w-full flex-col gap-6">
-        <div className="flex justify-between">
-          <p>ICONE Copa do Mundo</p>
-          <p>Dificuldade: <span className="capitalize">{questions[idx]?.dificuldade}</span></p>
-        </div>
-      </div>
-      <h2 className="font-display mb-2 text-4xl font-medium">
-        {questions[idx]?.pergunta}
-      </h2>
-      <div className="flex w-full flex-col gap-2">
-        {questions[idx]?.opcoes.map((option, index) => {
-          let className = "bg-deep"
 
-          if (locked) {
-            const resposta = questions[idx].resposta
-            const respostaIndex = questions[idx].opcoes.indexOf(resposta)
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`question-${idx}`}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.35, ease: "easeOut" },
+          }}
+          exit={{
+            opacity: 0,
+            x: -24,
+            transition: { duration: 0.25, ease: "easeIn" },
+          }}
+          className="flex w-full flex-col gap-6">
+          <div className="flex justify-between">
+            <p>ICONE Copa do Mundo</p>
+            <p>
+              Dificuldade:{" "}
+              <span className="capitalize">{questions[idx]?.dificuldade}</span>
+            </p>
+          </div>
+          <h2 className="font-display mb-2 text-3xl font-medium">
+            {questions[idx]?.pergunta}
+          </h2>
+          <motion.div
+            className="flex w-full flex-col gap-2"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.06,
+                },
+              },
+            }}>
+            {questions[idx]?.opcoes.map((option, index) => {
+              let className = "bg-deep";
+              let buttonState: "correct" | "wrong" | "disabled" | "default" =
+                "default";
 
-            if (respostaIndex === index ) {
-              className = "bg-gradient-right-answer"
-            } else if (picked === index) {
-              className = "bg-gradient-wrong-answer"
-            } else {
-              className = "bg-deep opacity-60 saturate-50"
-            }
-          }
-          return (
-            <Button
-              className={`${className} border-surface-1 text-text-primary px-6 text-left text-xl font-medium`}
-              onClick={() => pickAnswer(index)}
-              key={index}>
-              {option}
-            </Button>
-          );
-        })}
-        {/* <Button
-          className="bg-gradient-right-answer border-surface-2 text-text-primary px-6 text-left text-xl font-medium"
-          onClick={() => {}}>
-          França
-        </Button>
-        <Button
-          className="bg-deep border-surface-1 text-text-primary px-6 text-left text-xl font-medium"
-          onClick={() => {}}>
-          Bélgica
-        </Button>
-        <Button
-          className="bg-deep border-surface-1 text-text-primary px-6 text-left text-xl font-medium"
-          onClick={() => {}}>
-          Inglaterra
-        </Button>
-        <Button
-          className="bg-gradient-wrong-answer border-surface-2 text-text-primary px-6 text-left text-xl font-medium"
-          onClick={() => {}}>
-          Croácia
-        </Button> */}
-      </div>
+              if (locked) {
+                const resposta = questions[idx].resposta;
+                const respostaIndex = questions[idx].opcoes.indexOf(resposta);
+
+                if (respostaIndex === index) {
+                  className = "bg-gradient-right-answer";
+                  buttonState = "correct";
+                } else if (picked === index) {
+                  className = "bg-gradient-wrong-answer";
+                  buttonState = "wrong";
+                } else {
+                  className = "bg-deep";
+                  buttonState = "disabled";
+                }
+              }
+
+              return (
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}>
+                  <Button
+                    className={`${className} border-surface-1 text-text-primary px-6 text-left text-xl font-medium`}
+                    onClick={() => pickAnswer(index)}
+                    state={buttonState}>
+                    {option}
+                  </Button>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+
       <div className="flex w-full items-center justify-between gap-2">
         <div className="flex w-1/2 gap-2 p-4">
           <Clock />

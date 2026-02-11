@@ -9,13 +9,13 @@ function calculateStreakBonusXP(streak: number): number {
   return xp
 }
 
-function calculateDifficultyXP(difficulty: "fácil" | "médio" | "difícil"): number {
+function calculateDifficultyXP(difficulty: "fácil" | "média" | "difícil"): number {
   let xp = 0
   switch (difficulty) {
     case "fácil":
       xp = 10
       break;
-      case "médio":
+      case "média":
         xp = 20
         break;
         case "difícil":
