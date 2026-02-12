@@ -12,10 +12,14 @@
   --color-text-primary: #eaf7f1;
   --color-text-secondary: #b8d7cb;
 
-  --color-primary-500: #10b981; /* action green */
-  --color-accent-amber-400: #f6c74d; /* gold light  */
-  --color-accent-amber-500: #e9b23e; /* gold mid    */
-  --color-accent-amber-600: #d39b2f; /* gold dark   */
+  --color-primary-500: #10b981;
+  /* action green */
+  --color-accent-amber-400: #f6c74d;
+  /* gold light  */
+  --color-accent-amber-500: #e9b23e;
+  /* gold mid    */
+  --color-accent-amber-600: #d39b2f;
+  /* gold dark   */
 
   --color-success-500: #34d399;
   --color-danger-500: #ef4444;
@@ -43,11 +47,10 @@
    ========================= */
 :root {
   /* tailored for “dark-first” app with graceful light fallback */
-  --background: linear-gradient(
-    to bottom right,
-    #0f6a52,
-    #0b4b45
-  ); /* bg-deep */
+  --background: linear-gradient(to bottom right,
+      #0f6a52,
+      #0b4b45);
+  /* bg-deep */
   --foreground: var(--color-text-primary);
 }
 
@@ -64,7 +67,8 @@
 html,
 body,
 #__next {
-  height: 100%;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
 }
 
 body {
@@ -89,28 +93,23 @@ body {
 
 /* Right answer button gradient (green) */
 @utility bg-gradient-right-answer {
-  background-image: linear-gradient(
-    90deg,
-    rgba(15, 113, 57, 1) 0%,
-    rgba(0, 75, 52, 1) 90%
-  );
+  background-image: linear-gradient(90deg,
+      rgba(15, 113, 57, 1) 0%,
+      rgba(0, 75, 52, 1) 90%);
 }
+
 /* Selected answerbutton gradient (blue/teal) */
 @utility bg-gradient-selected {
-  background-image: linear-gradient(
-    90deg,
-    rgba(29, 78, 137, 1) 0%,
-    rgba(15, 75, 109, 1) 85%
-  );
+  background-image: linear-gradient(90deg,
+      rgba(29, 78, 137, 1) 0%,
+      rgba(15, 75, 109, 1) 85%);
 }
 
 /* Wrong answerbutton gradient (red) */
 @utility bg-gradient-wrong-answer {
-  background-image: linear-gradient(
-    90deg,
-    rgba(161, 39, 38, 1) 0%,
-    rgba(116, 29, 35, 1) 85%
-  );
+  background-image: linear-gradient(90deg,
+      rgba(161, 39, 38, 1) 0%,
+      rgba(116, 29, 35, 1) 85%);
 }
 
 /* Progress fill gradient (gold → green) */
@@ -120,15 +119,12 @@ body {
 
 /* Glass card surface used across screens */
 @utility card-surface {
-  background-color: color-mix(
-    in oklab,
-    var(--color-surface-1) 92%,
-    transparent
-  );
+  background-color: color-mix(in oklab,
+      var(--color-surface-1) 92%,
+      transparent);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border: 1px solid
-    color-mix(in oklab, var(--color-border-subtle), transparent 85%);
+  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 85%);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
 }
@@ -137,13 +133,10 @@ body {
 @utility badge {
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
-  background-color: color-mix(
-    in oklab,
-    var(--color-surface-2),
-    transparent 10%
-  );
-  border: 1px solid
-    color-mix(in oklab, var(--color-border-subtle), transparent 80%);
+  background-color: color-mix(in oklab,
+      var(--color-surface-2),
+      transparent 10%);
+  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 80%);
   color: var(--color-text-primary);
 }
 
