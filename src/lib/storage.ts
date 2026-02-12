@@ -96,6 +96,8 @@ function getRoundResultsFromLocalStorage(): RoundResult[] {
 }
 
 function saveRoundResultsToLocalStorage(results: RoundResult[]): void {
+  if (results.length > 50) results.shift()
+
   writeArray<RoundResult>(STORAGE_KEYS.results, results);
 }
 
