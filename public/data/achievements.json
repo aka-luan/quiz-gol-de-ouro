@@ -1,34 +1,43 @@
 [
   {
-    "id": "first_win",
-    "name": "Primeira Vitória",
-    "description": "Finalize uma rodada pela primeira vez.",
+    "id": "firstGame",
+    "name": "Primeiro Jogo",
+    "description": "Jogue sua primeira rodada.",
     "rarity": "comum",
     "icon": "flag-checkered",
     "category": "progress",
-    "trigger": { "type": "round_completed", "value": 1 }
+    "trigger": { "type": "rounds_played_total", "value": 1 }
   },
   {
-    "id": "first_correct",
-    "name": "Primeiro Acerto",
-    "description": "Acerte uma pergunta pela primeira vez.",
+    "id": "games10",
+    "name": "Maratonista de Quiz",
+    "description": "Jogue 10 rodadas no total.",
+    "rarity": "incomum",
+    "icon": "gamepad-2",
+    "category": "progress",
+    "trigger": { "type": "rounds_played_total", "value": 10 }
+  },
+  {
+    "id": "answered50",
+    "name": "Aquecendo",
+    "description": "Responda 50 perguntas no total.",
     "rarity": "comum",
-    "icon": "check",
-    "category": "skill",
-    "trigger": { "type": "correct_total", "value": 1 }
+    "icon": "message-circle-question",
+    "category": "progress",
+    "trigger": { "type": "questions_answered_total", "value": 50 }
   },
   {
-    "id": "streak_3",
-    "name": "Embalou!",
-    "description": "Faça 3 acertos seguidos.",
-    "rarity": "comum",
-    "icon": "flame",
-    "category": "streak",
-    "trigger": { "type": "streak_reached", "value": 3 }
+    "id": "answered200",
+    "name": "Viciado em Estatística",
+    "description": "Responda 200 perguntas no total.",
+    "rarity": "raro",
+    "icon": "scroll-text",
+    "category": "progress",
+    "trigger": { "type": "questions_answered_total", "value": 200 }
   },
   {
-    "id": "streak_5",
-    "name": "Tá quente!",
+    "id": "streak5",
+    "name": "Tá Quente!",
     "description": "Faça 5 acertos seguidos.",
     "rarity": "incomum",
     "icon": "flame",
@@ -36,7 +45,7 @@
     "trigger": { "type": "streak_reached", "value": 5 }
   },
   {
-    "id": "streak_10",
+    "id": "streak10",
     "name": "Modo Craque",
     "description": "Faça 10 acertos seguidos.",
     "rarity": "raro",
@@ -45,7 +54,7 @@
     "trigger": { "type": "streak_reached", "value": 10 }
   },
   {
-    "id": "perfect_round",
+    "id": "perfect10",
     "name": "10/10!",
     "description": "Faça uma rodada perfeita (acerte todas as perguntas).",
     "rarity": "épico",
@@ -54,145 +63,30 @@
     "trigger": { "type": "round_score_at_least", "value": 10 }
   },
   {
-    "id": "great_round_9",
-    "name": "Quase Perfeito",
-    "description": "Acerte 9 ou mais em uma rodada.",
-    "rarity": "raro",
-    "icon": "award",
-    "category": "skill",
-    "trigger": { "type": "round_score_at_least", "value": 9 }
-  },
-  {
-    "id": "solid_round_7",
-    "name": "Boa Rodada",
-    "description": "Acerte 7 ou mais em uma rodada.",
-    "rarity": "incomum",
-    "icon": "thumbs-up",
-    "category": "skill",
-    "trigger": { "type": "round_score_at_least", "value": 7 }
-  },
-
-  {
-    "id": "speedster_5s",
-    "name": "Velocista",
-    "description": "Acerte uma pergunta com 15s ou mais restantes no timer (timer inicial 20s).",
-    "rarity": "incomum",
-    "icon": "timer",
-    "category": "speed",
-    "trigger": { "type": "correct_with_time_left_at_least", "value": 15 }
-  },
-  {
-    "id": "clutch_3s",
-    "name": "No Apagar das Luzes",
-    "description": "Acerte uma pergunta com 3s ou menos restantes.",
-    "rarity": "raro",
-    "icon": "hourglass",
-    "category": "speed",
-    "trigger": { "type": "correct_with_time_left_at_most", "value": 3 }
-  },
-
-  {
-    "id": "xp_100",
-    "name": "Subindo o Sarrafo",
-    "description": "Acumule 100 XP no total.",
-    "rarity": "comum",
+    "id": "threePerfect",
+    "name": "Trinca Perfeita",
+    "description": "Faça 3 rodadas perfeitas (10/10) no total.",
+    "rarity": "épico",
     "icon": "sparkles",
-    "category": "xp",
-    "trigger": { "type": "xp_total_at_least", "value": 100 }
+    "category": "skill",
+    "trigger": { "type": "perfect_games_total", "value": 3 }
   },
   {
-    "id": "xp_500",
+    "id": "xp200",
     "name": "Profissional",
-    "description": "Acumule 500 XP no total.",
+    "description": "Acumule 200 XP no total.",
     "rarity": "incomum",
     "icon": "medal",
     "category": "xp",
-    "trigger": { "type": "xp_total_at_least", "value": 500 }
+    "trigger": { "type": "xp_total_at_least", "value": 200 }
   },
   {
-    "id": "xp_1000",
+    "id": "xp1000",
     "name": "Lenda",
     "description": "Acumule 1000 XP no total.",
     "rarity": "épico",
     "icon": "crown",
     "category": "xp",
     "trigger": { "type": "xp_total_at_least", "value": 1000 }
-  },
-
-  {
-    "id": "round_xp_150",
-    "name": "Rodada Valiosa",
-    "description": "Ganhe 150 XP ou mais em uma única rodada.",
-    "rarity": "raro",
-    "icon": "gem",
-    "category": "xp",
-    "trigger": { "type": "round_xp_at_least", "value": 150 }
-  },
-
-  {
-    "id": "comeback_round",
-    "name": "Virada",
-    "description": "Erre uma pergunta e depois faça uma sequência de 5 acertos na mesma rodada.",
-    "rarity": "épico",
-    "icon": "repeat",
-    "category": "special",
-    "trigger": { "type": "comeback_streak_after_miss", "value": 5 }
-  },
-  {
-    "id": "no_mistakes_after_q3",
-    "name": "Concentração Total",
-    "description": "A partir da pergunta 4, não erre mais até o fim da rodada.",
-    "rarity": "raro",
-    "icon": "target",
-    "category": "special",
-    "trigger": { "type": "no_mistakes_after_index", "value": 3 }
-  },
-
-  {
-    "id": "fast_finish",
-    "name": "Ritmo Forte",
-    "description": "Finalize uma rodada com tempo médio restante >= 10s (timer inicial 20s).",
-    "rarity": "raro",
-    "icon": "gauge",
-    "category": "speed",
-    "trigger": { "type": "round_avg_time_left_at_least", "value": 10 }
-  },
-
-  {
-    "id": "play_5_rounds",
-    "name": "Viciado em Quiz",
-    "description": "Jogue 5 rodadas no total.",
-    "rarity": "comum",
-    "icon": "gamepad-2",
-    "category": "progress",
-    "trigger": { "type": "rounds_played_total", "value": 5 }
-  },
-  {
-    "id": "play_20_rounds",
-    "name": "Maratonista",
-    "description": "Jogue 20 rodadas no total.",
-    "rarity": "raro",
-    "icon": "footprints",
-    "category": "progress",
-    "trigger": { "type": "rounds_played_total", "value": 20 }
-  },
-
-  {
-    "id": "first_try_correct",
-    "name": "Confiança",
-    "description": "Acerte a primeira pergunta de uma rodada.",
-    "rarity": "comum",
-    "icon": "check-circle",
-    "category": "special",
-    "trigger": { "type": "first_question_correct", "value": 1 }
-  },
-  {
-    "id": "last_question_correct",
-    "name": "Fechou com Chave de Ouro",
-    "description": "Acerte a última pergunta da rodada.",
-    "rarity": "incomum",
-    "icon": "key",
-    "category": "special",
-    "trigger": { "type": "last_question_correct", "value": 1 }
   }
 ]

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import PageTransitionEffect from "@/app/PageTransitionEffect";
+import { Toaster } from "sonner";
 
 const PageTransitionLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,6 +9,7 @@ const PageTransitionLayout = ({ children }: { children: React.ReactNode }) => {
       <body className="bg-gradient-app! p-4">
         <Header />
         <PageTransitionEffect>{children}</PageTransitionEffect>
+        <Toaster />
       </body>
     </html>
   );

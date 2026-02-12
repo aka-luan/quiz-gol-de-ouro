@@ -11,6 +11,7 @@ import {
   saveCorrectAnswerProgressToLocalStorage,
   saveRoundResultToLocalStorage,
 } from "@/lib/storage";
+import { useAchievementFeedback } from "@/lib/useAchievementFeedback";
 import { BarChart3, Clock, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -40,6 +41,8 @@ function quiz() {
   const [xpTotal, setXpTotal] = useState(0 as number);
   const [showResults, setShowResults] = useState(false as boolean);
 
+  const { showAchievementFeedback } = useAchievementFeedback();
+
   useEffect(() => {
     fetch("/data/questions.json")
       .then((res) => res.json())
@@ -66,9 +69,9 @@ function quiz() {
       (question) => !excludedIds.includes(question.id),
     );
     const roundPool =
-      filteredQuestions.length >= QUESTIONS_PER_ROUND
-        ? filteredQuestions
-        : questionList;
+      filteredQuestions.length >= QUESTIONS_PER_ROUND ?
+        filteredQuestions
+      : questionList;
 
     const indexes = [] as number[];
     if (roundPool.length === 0) return [] as Question[];
@@ -117,12 +120,14 @@ function quiz() {
 
   function onClickNext() {
     if (idx + 1 === questions.length) {
-      const { xpTotal: updatedXpTotal } = saveRoundResultToLocalStorage({
-        acertos,
-        total: questions.length,
-        xpGanho,
-        dataISO: new Date().toISOString(),
-      });
+      const { xpTotal: updatedXpTotal, unlockedAchievements } =
+        saveRoundResultToLocalStorage({
+          acertos,
+          total: questions.length,
+          xpGanho,
+          dataISO: new Date().toISOString(),
+        });
+      showAchievementFeedback(unlockedAchievements);
       setXpTotal(() => updatedXpTotal);
       setShowResults(() => true);
       return;
@@ -193,7 +198,9 @@ function quiz() {
               <p>ICONE Copa do Mundo</p>
               <p>
                 Dificuldade:{" "}
-                <span className="capitalize">{questions[idx]?.dificuldade}</span>
+                <span className="capitalize">
+                  {questions[idx]?.dificuldade}
+                </span>
               </p>
             </div>
             <h2 className="font-display mb-2 text-3xl font-medium">
@@ -269,11 +276,10 @@ function quiz() {
             </Button>
           </div>
         </div>
-        <div className="flex gap-2"></div>
       </main>
 
       <AnimatePresence>
-        {showResults ? (
+        {showResults ?
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -305,13 +311,13 @@ function quiz() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
                   <p className="text-text-secondary text-sm">Acertos</p>
-                  <p className="font-mono text-success-500 text-3xl font-bold">
+                  <p className="text-success-500 font-mono text-3xl font-bold">
                     {acertos}/{QUESTIONS_PER_ROUND}
                   </p>
                 </div>
                 <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
                   <p className="text-text-secondary text-sm">XP ganhos</p>
-                  <p className="font-mono text-accent-amber-400 text-3xl font-bold">
+                  <p className="text-accent-amber-400 font-mono text-3xl font-bold">
                     +{xpGanho} XP
                   </p>
                 </div>
@@ -339,7 +345,7 @@ function quiz() {
               </div>
             </motion.section>
           </motion.div>
-        ) : null}
+        : null}
       </AnimatePresence>
     </>
   );

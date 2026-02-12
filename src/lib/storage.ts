@@ -7,9 +7,9 @@ const STORAGE_KEYS = {
 } as const;
 
 const LEGACY_ACHIEVEMENT_IDS: Record<string, string> = {
-  streak3: "streak_3",
-  streak5: "streak_5",
-  streak10: "streak_10",
+  streak3: "streak3",
+  streak5: "streak5",
+  streak10: "streak10",
 };
 
 type RoundResult = {
@@ -140,17 +140,10 @@ function unlockAchievementsInLocalStorage(achievementIds: string[]): string[] {
 function saveCorrectAnswerProgressToLocalStorage(
   context: CorrectAnswerContext,
 ): string[] {
-  const achievementsToUnlock = ["first_correct"] as string[];
+  const achievementsToUnlock = [] as string[];
 
-  if (context.streak === 3) achievementsToUnlock.push("streak_3");
-  if (context.streak === 5) achievementsToUnlock.push("streak_5");
-  if (context.streak === 10) achievementsToUnlock.push("streak_10");
-  if (context.timerLeft >= 15) achievementsToUnlock.push("speedster_5s");
-  if (context.timerLeft <= 3) achievementsToUnlock.push("clutch_3s");
-  if (context.questionIndex === 0) achievementsToUnlock.push("first_try_correct");
-
-  const isLastQuestion = context.questionIndex === context.totalQuestions - 1;
-  if (isLastQuestion) achievementsToUnlock.push("last_question_correct");
+  if (context.streak === 5) achievementsToUnlock.push("streak5");
+  if (context.streak === 10) achievementsToUnlock.push("streak10");
 
   return unlockAchievementsInLocalStorage(achievementsToUnlock);
 }
@@ -160,19 +153,15 @@ function getRoundAchievementsToUnlock(
   xpTotal: number,
   roundsPlayed: number,
 ): string[] {
-  const achievementsToUnlock = ["first_win"] as string[];
+  const achievementsToUnlock = [] as string[];
 
-  if (result.acertos >= 7) achievementsToUnlock.push("solid_round_7");
-  if (result.acertos >= 9) achievementsToUnlock.push("great_round_9");
-  if (result.acertos >= result.total) achievementsToUnlock.push("perfect_round");
-  if (result.xpGanho >= 150) achievementsToUnlock.push("round_xp_150");
+  if (roundsPlayed === 1) achievementsToUnlock.push("firstGame");
+  if (roundsPlayed >= 10) achievementsToUnlock.push("games10");
 
-  if (xpTotal >= 100) achievementsToUnlock.push("xp_100");
-  if (xpTotal >= 500) achievementsToUnlock.push("xp_500");
-  if (xpTotal >= 1000) achievementsToUnlock.push("xp_1000");
+  if (result.acertos >= result.total) achievementsToUnlock.push("perfect10");
 
-  if (roundsPlayed >= 5) achievementsToUnlock.push("play_5_rounds");
-  if (roundsPlayed >= 20) achievementsToUnlock.push("play_20_rounds");
+  if (xpTotal >= 200) achievementsToUnlock.push("xp200");
+  if (xpTotal >= 1000) achievementsToUnlock.push("xp1000");
 
   return achievementsToUnlock;
 }
