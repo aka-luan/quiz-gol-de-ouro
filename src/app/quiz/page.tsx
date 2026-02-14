@@ -27,7 +27,7 @@ type Question = {
   pergunta: string;
   opcoes: string[];
   resposta: string;
-  dificuldade: "fÃ¡cil" | "mÃ©dia" | "difÃ­cil";
+  dificuldade: "facil" | "media" | "dificil";
 };
 
 function quiz() {
@@ -305,7 +305,8 @@ function quiz() {
             <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-sm">
               <p className="badge text-[11px]">rodada oficial</p>
               <p className="text-text-secondary">
-                Dificuldade: <span className="text-text-primary capitalize">
+                Dificuldade:{" "}
+                <span className="text-text-primary capitalize">
                   {questions[idx]?.dificuldade}
                 </span>
               </p>
@@ -459,4 +460,3 @@ function quiz() {
 }
 
 export default quiz;
-
