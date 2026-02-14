@@ -99,7 +99,6 @@ function quiz() {
     const resposta = questions[idx].resposta;
 
     if (alternativa === resposta) {
-      debugger;
       const dificuldade = questions[idx].dificuldade;
       const updatedStreak = streak + 1;
       const updatedBestStreak = Math.max(updatedStreak, bestStreak);
@@ -126,7 +125,6 @@ function quiz() {
 
   function onClickNext() {
     if (idx + 1 === questions.length) {
-      debugger;
       const { xpTotal: updatedXpTotal, unlockedAchievements } =
         saveRoundResultToLocalStorage({
           melhorSequencia: bestStreak,

@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/Button";
+import { computeLevel } from "@/lib/game";
 import {
   getBestScoreFromLocalStorage,
   getBestStreakFromLocalStorage,
@@ -22,10 +23,22 @@ function ranking() {
   const best = getBestScoreFromLocalStorage();
   const exp = getExpFromLocalStorage();
   const bestStreak = getBestStreakFromLocalStorage();
+  const acertosArr = results.map((result) => result.acertos);
+  const totalRoundsArr = results.map((result) => result.total);
+  const totalAcertos = acertosArr.reduce((acc, curr) => (acc += curr));
+  const totalRounds = totalRoundsArr.reduce((acc, curr) => (acc += curr));
+  const taxaAcertos = ((totalAcertos / totalRounds) * 100).toFixed(2);
+  const level = computeLevel(exp);
+
   console.log(results);
+  console.log(acertosArr);
+  console.log(totalAcertos);
   console.log(best);
   console.log(exp);
   console.log(bestStreak);
+  console.log(totalRounds);
+  console.log(level);
+
   return (
     <main className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-8 px-8 py-10">
       {/* <p className="text-xl">
@@ -45,22 +58,22 @@ function ranking() {
             </div>
             <div className="flex flex-col gap-4 py-4">
               <span className="text-accent-amber-400 text-3xl font-bold">
-                Craque
+                {level}
               </span>
-              <span>XP Total: 620</span>
+              <span>XP Total: {exp}</span>
             </div>
           </li>
           <li className="flex gap-3">
             <Flame color="#E9B23E" />
-            Maior Sequência: 8
+            Maior Sequência: {bestStreak}
           </li>
           <li className="flex gap-3">
             <Gamepad2 color="#E9B23E" />
-            Melhor Partida: 9/10
+            Melhor Partida: {best}/10
           </li>
           <li className="flex gap-3">
             <Target color="#E9B23E" />
-            Taxa de Acerto: 75%
+            Taxa de Acerto: {taxaAcertos}%
           </li>
         </ul>
       </div>
