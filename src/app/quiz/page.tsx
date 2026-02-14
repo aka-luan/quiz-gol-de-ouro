@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+﻿/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Button from "@/components/Button";
 import Progress from "@/components/Progress";
@@ -27,7 +27,7 @@ type Question = {
   pergunta: string;
   opcoes: string[];
   resposta: string;
-  dificuldade: "fácil" | "média" | "difícil";
+  dificuldade: "fÃ¡cil" | "mÃ©dia" | "difÃ­cil";
 };
 
 function quiz() {
@@ -244,12 +244,12 @@ function quiz() {
           answerFeedback === "wrong" ? { x: [0, -8, 8, -5, 5, 0] } : { x: 0 }
         }
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`bg-surface-1 border-surface-2 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-6 rounded-3xl border px-8 py-10 ${
+        className={`card-surface border-surface-2 shadow-card mx-auto flex w-full max-w-5xl flex-col gap-4 border px-4 py-4 sm:px-6 sm:py-5 ${
           showResults ? "pointer-events-none opacity-50" : ""
         } ${answerFeedback === "wrong" ? "border-danger-500/60" : ""}`}>
-        <div className="border-surface-2 w-full border-b pb-4 font-mono">
-          <div className="mb-2 flex justify-between">
-            <p>Pergunta {idx + 1}/10</p>
+        <div className="bg-surface-1 border-surface-2 w-full rounded-2xl border p-3 sm:p-4">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 font-mono text-sm">
+            <p className="text-text-secondary">Pergunta {idx + 1}/10</p>
             <motion.div
               animate={
                 answerFeedback === "correct" ?
@@ -257,7 +257,7 @@ function quiz() {
                 : { scale: 1 }
               }
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="relative">
+              className="relative rounded-full border border-white/10 px-3 py-1">
               <p
                 className={
                   answerFeedback === "correct" ? "text-success-500" : ""
@@ -278,7 +278,10 @@ function quiz() {
                 : null}
               </AnimatePresence>
             </motion.div>
-            <p className={answerFeedback === "wrong" ? "text-danger-500" : ""}>
+            <p
+              className={`rounded-full border border-white/10 px-3 py-1 ${
+                answerFeedback === "wrong" ? "text-danger-500" : ""
+              }`}>
               Streak: {streak}
             </p>
           </div>
@@ -298,21 +301,20 @@ function quiz() {
               x: -24,
               transition: { duration: 0.25, ease: "easeIn" },
             }}
-            className="flex w-full flex-col gap-6">
-            <div className="flex justify-between font-mono">
-              <p>ICONE Copa do Mundo</p>
-              <p>
-                Dificuldade:{" "}
-                <span className="capitalize">
+            className="bg-surface-1 border-surface-2 flex w-full flex-col gap-5 rounded-2xl border p-4 sm:p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-sm">
+              <p className="badge text-[11px]">rodada oficial</p>
+              <p className="text-text-secondary">
+                Dificuldade: <span className="text-text-primary capitalize">
                   {questions[idx]?.dificuldade}
                 </span>
               </p>
             </div>
-            <h2 className="font-display mb-2 text-3xl font-medium">
+            <h2 className="font-display text-2xl leading-tight font-semibold sm:text-3xl">
               {questions[idx]?.pergunta}
             </h2>
             <motion.div
-              className="flex w-full flex-col gap-2"
+              className="flex w-full flex-col gap-2.5"
               initial="hidden"
               animate="visible"
               variants={{
@@ -356,7 +358,7 @@ function quiz() {
                     }}
                     transition={{ duration: 0.35, ease: "easeOut" }}>
                     <Button
-                      className={`${className} border-surface-1 text-text-primary px-6 text-left text-xl font-medium`}
+                      className={`${className} border-surface-1 text-text-primary px-5 py-4 text-left text-lg font-medium`}
                       onClick={() => pickAnswer(index)}
                       state={buttonState}>
                       {option}
@@ -368,16 +370,16 @@ function quiz() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="flex w-full items-center justify-between gap-2">
-          <div className="flex w-1/2 gap-2 p-4">
-            <Clock />
+        <div className="bg-surface-1 border-surface-2 flex w-full items-center justify-between gap-2 rounded-2xl border p-3 sm:p-4">
+          <div className="text-text-secondary inline-flex items-center gap-2 font-mono text-sm">
+            <Clock className="h-4 w-4" />
             <p>Tempo: {timer}s</p>
           </div>
-          <div className={`w-1/2 ${!locked ? "hidden" : ""}`}>
+          <div className={`${!locked ? "hidden" : ""}`}>
             <Button
-              className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 font-medium transition hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-gradient-button shadow-elevated text-deep flex min-w-52 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition hover:scale-[1.02] active:scale-[0.98]"
               onClick={onClickNext}>
-              Próxima Pergunta {">"}
+              Proxima pergunta {">"}
             </Button>
           </div>
         </div>
@@ -398,10 +400,10 @@ function quiz() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="bg-surface-1 card-surface border-surface-2 relative w-full max-w-xl overflow-hidden rounded-3xl border p-6">
+              className="card-surface border-surface-2 relative w-full max-w-2xl overflow-hidden border p-5 sm:p-6">
               <h2
                 id="result-modal-title"
-                className="font-display text-center text-5xl font-semibold">
+                className="font-display text-center text-4xl font-semibold sm:text-5xl">
                 Resultado
               </h2>
               <div className="border-surface-2 my-4 border-b"></div>
@@ -410,8 +412,8 @@ function quiz() {
                   <Trophy className="text-deep h-10 w-10" />
                 </div>
               </div>
-              <p className="mb-6 text-center text-3xl font-medium">
-                Parabéns! Você concluiu o quiz!
+              <p className="mb-5 text-center text-2xl font-medium sm:text-3xl">
+                Parabens! Voce concluiu o quiz!
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
@@ -431,19 +433,19 @@ function quiz() {
                   <p className="font-mono text-3xl font-bold">{xpTotal} XP</p>
                 </div>
                 <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
-                  <p className="text-text-secondary text-sm">Nível</p>
+                  <p className="text-text-secondary text-sm">Nivel</p>
                   <p className="font-mono text-3xl font-bold">{nivel}</p>
                 </div>
               </div>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <Button
-                  className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 text-xl font-semibold transition hover:scale-[1.02] active:scale-[0.98]"
+                  className="bg-gradient-button shadow-elevated text-deep flex items-center justify-center gap-2 text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]"
                   onClick={startNewRound}>
                   Jogar novamente
                 </Button>
                 <Link
                   href="/ranking"
-                  className="bg-deep border-surface-2 text-text-primary shadow-elevated inline-flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-4 text-center text-xl font-semibold transition hover:scale-[1.02] active:scale-[0.98]">
+                  className="bg-deep border-surface-2 text-text-primary shadow-elevated inline-flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-4 text-center text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]">
                   <BarChart3 className="h-5 w-5" />
                   Ver ranking
                 </Link>
@@ -457,3 +459,4 @@ function quiz() {
 }
 
 export default quiz;
+

@@ -1,5 +1,5 @@
-"use client";
-import Button from "@/components/Button";
+﻿"use client";
+
 import { computeLevel } from "@/lib/game";
 import {
   getBestScoreFromLocalStorage,
@@ -7,16 +7,7 @@ import {
   getExpFromLocalStorage,
   getRoundResultsFromLocalStorage,
 } from "@/lib/storage";
-import {
-  ArrowUp,
-  Calendar,
-  Crown,
-  Flame,
-  Gamepad2,
-  PersonStanding,
-  Star,
-  Target,
-} from "lucide-react";
+import { Calendar, Crown, Flame, Medal, Target } from "lucide-react";
 
 function ranking() {
   const results = getRoundResultsFromLocalStorage();
@@ -30,76 +21,98 @@ function ranking() {
   const taxaAcertos = ((totalAcertos / totalRounds) * 100).toFixed(2);
   const level = computeLevel(exp);
 
-  console.log(results);
-  console.log(acertosArr);
-  console.log(totalAcertos);
-  console.log(best);
-  console.log(exp);
-  console.log(bestStreak);
-  console.log(totalRounds);
-  console.log(level);
-
   return (
-    <main className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-8 px-8 py-10">
-      {/* <p className="text-xl">
-        Teste seus conhecimentos sobre futebol, ganhe XP, suba de nível e desbloqueie conquista!
-      </p> */}
-      {/* <Button
-        className="bg-gradient-button shadow-elevated flex items-center justify-center gap-2 text-xl font-medium transition hover:scale-[1.02] active:scale-[0.98]"
-        onClick={() => {}}>
-        <CirclePlay />
-        Jogar Agora
-      </Button> */}
-      <div className="bg-surface-1 card-surface shadow-elevated border-surface-2 w-full rounded-2xl border p-6">
-        <ul className="flex flex-col gap-2 font-mono text-xl">
-          <li className="flex">
+    <main className="mx-auto flex w-full max-w-6xl flex-col gap-4 pb-2">
+      <section className="card-surface border-surface-2 relative overflow-hidden border px-5 py-5 sm:px-6">
+        <div className="pointer-events-none absolute -top-12 -right-10 h-32 w-32 rounded-full bg-amber-300/20 blur-2xl" />
+        <div className="pointer-events-none absolute -bottom-14 -left-12 h-32 w-32 rounded-full bg-emerald-300/15 blur-2xl" />
+
+        <div className="relative z-10 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-accent-amber-400 font-mono text-xs tracking-[0.14em] uppercase">Desempenho</p>
+            <h1 className="font-display text-3xl font-semibold sm:text-4xl">Ranking</h1>
+            <p className="text-text-secondary mt-1 text-sm">Painel com seus principais numeros da temporada.</p>
+          </div>
+
+          <div className="bg-surface-1 border-surface-2 flex items-center gap-3 rounded-2xl border px-4 py-3">
+            <span className="bg-gradient-button text-deep rounded-full p-2">
+              <Crown className="h-4 w-4" />
+            </span>
             <div>
-              <PersonStanding size={120} color="#E9B23E" />
+              <p className="text-text-secondary text-xs">Nivel atual</p>
+              <p className="font-mono text-xl font-bold">{level}</p>
             </div>
-            <div className="flex flex-col gap-4 py-4">
-              <span className="text-accent-amber-400 text-3xl font-bold">
-                {level}
-              </span>
-              <span>XP Total: {exp}</span>
-            </div>
-          </li>
-          <li className="flex gap-3">
-            <Flame color="#E9B23E" />
-            Maior Sequência: {bestStreak}
-          </li>
-          <li className="flex gap-3">
-            <Gamepad2 color="#E9B23E" />
-            Melhor Partida: {best}/10
-          </li>
-          <li className="flex gap-3">
-            <Target color="#E9B23E" />
-            Taxa de Acerto: {taxaAcertos}%
-          </li>
-        </ul>
-      </div>
-      <div className="bg-surface-1 card-surface shadow-elevated border-surface-2 w-full rounded-2xl border p-6">
-        <div className="mb-4 flex items-center gap-2">
-          <Crown color="#E9B23E" />
-          <h2 className="font-display text-2xl font-medium">Histórico</h2>
+          </div>
         </div>
-        <ul className="bg-surface-2 card-surface px-3 py-4 font-mono text-lg">
-          {results.length ?
-            results.map((result) => (
-              <li key={result.dataISO} className="flex justify-between p-2">
-                <div className="flex gap-2">
-                  <Calendar />
-                  {new Date(result.dataISO).toLocaleString()}
+      </section>
+
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <article className="bg-surface-1 border-surface-2 shadow-elevated rounded-2xl border p-4">
+          <p className="text-text-secondary text-xs">XP total</p>
+          <p className="font-mono mt-2 text-3xl font-bold text-accent-amber-400">{exp}</p>
+        </article>
+
+        <article className="bg-surface-1 border-surface-2 shadow-elevated rounded-2xl border p-4">
+          <p className="text-text-secondary text-xs">Melhor partida</p>
+          <p className="font-mono mt-2 text-3xl font-bold">{best}/10</p>
+        </article>
+
+        <article className="bg-surface-1 border-surface-2 shadow-elevated rounded-2xl border p-4">
+          <p className="text-text-secondary text-xs">Maior sequencia</p>
+          <p className="font-mono mt-2 inline-flex items-center gap-2 text-3xl font-bold">
+            <Flame className="h-6 w-6 text-accent-amber-400" />
+            {bestStreak}
+          </p>
+        </article>
+
+        <article className="bg-surface-1 border-surface-2 shadow-elevated rounded-2xl border p-4">
+          <p className="text-text-secondary text-xs">Taxa de acerto</p>
+          <p className="font-mono mt-2 inline-flex items-center gap-2 text-3xl font-bold">
+            <Target className="h-6 w-6 text-accent-amber-400" />
+            {taxaAcertos}%
+          </p>
+        </article>
+      </section>
+
+      <section className="card-surface border-surface-2 border p-4 sm:p-5">
+        <div className="mb-3 flex items-center justify-between">
+          <div className="inline-flex items-center gap-2">
+            <span className="bg-deep rounded-lg p-2">
+              <Medal className="h-4 w-4 text-accent-amber-400" />
+            </span>
+            <h2 className="font-display text-2xl font-semibold">Historico de partidas</h2>
+          </div>
+          <p className="text-text-secondary text-sm">{results.length} rodadas</p>
+        </div>
+
+        {results.length ? (
+          <ul className="space-y-2">
+            {results.map((result) => (
+              <li
+                key={result.dataISO}
+                className="bg-surface-1 border-surface-2 flex items-center justify-between gap-4 rounded-xl border px-4 py-3">
+                <div className="flex min-w-0 items-center gap-2">
+                  <Calendar className="text-text-secondary h-4 w-4 shrink-0" />
+                  <span className="truncate text-sm">{new Date(result.dataISO).toLocaleString()}</span>
                 </div>
-                <div className="flex">
-                  <span>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-text-secondary text-xs">acertos</span>
+                  <span className="font-mono text-base font-semibold">
                     {result.acertos}/{result.total}
                   </span>
+                  <span className="font-mono text-accent-amber-400 text-sm">+{result.xpGanho} XP</span>
                 </div>
               </li>
-            ))
-          : ""}
-        </ul>
-      </div>
+            ))}
+          </ul>
+        ) : (
+          <div className="bg-surface-1 border-surface-2 rounded-xl border px-4 py-8 text-center">
+            <p className="text-text-secondary text-sm">Nenhuma rodada registrada ainda.</p>
+            <p className="mt-1 text-sm">Jogue uma partida para preencher seu historico.</p>
+          </div>
+        )}
+      </section>
     </main>
   );
 }

@@ -48,7 +48,7 @@
     "id": "perfect_round",
     "name": "10/10!",
     "description": "Faça uma rodada perfeita (acerte todas as perguntas).",
-    "rarity": "épico",
+    "rarity": "epico",
     "icon": "trophy",
     "category": "skill",
     "trigger": { "type": "round_score_at_least", "value": 10 }
@@ -113,7 +113,7 @@
     "id": "xp_1000",
     "name": "Lenda",
     "description": "Acumule 1000 XP no total.",
-    "rarity": "épico",
+    "rarity": "epico",
     "icon": "crown",
     "category": "xp",
     "trigger": { "type": "xp_total_at_least", "value": 1000 }
@@ -133,7 +133,7 @@
     "id": "comeback_round",
     "name": "Virada",
     "description": "Erre uma pergunta e depois faça uma sequência de 5 acertos na mesma rodada.",
-    "rarity": "épico",
+    "rarity": "epico",
     "icon": "repeat",
     "category": "special",
     "trigger": { "type": "comeback_streak_after_miss", "value": 5 }

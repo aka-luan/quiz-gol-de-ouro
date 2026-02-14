@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* =========================
    THEME TOKENS (Tailwind v4)
@@ -46,10 +46,8 @@
    LIGHT / DARK CONTEXT
    ========================= */
 :root {
-  /* tailored for “dark-first” app with graceful light fallback */
-  --background: linear-gradient(to bottom right,
-      #0f6a52,
-      #0b4b45);
+  /* tailored for â€œdark-firstâ€ app with graceful light fallback */
+  --background:`n    radial-gradient(120% 80% at 10% 0%, rgba(246, 199, 77, 0.16), transparent 60%),`n    radial-gradient(110% 80% at 90% 100%, rgba(15, 106, 82, 0.34), transparent 60%),`n    linear-gradient(160deg, #08231f 0%, #0b4b45 58%, #0a332d 100%);
   /* bg-deep */
   --foreground: var(--color-text-primary);
 }
@@ -81,7 +79,7 @@ body {
    CUSTOM UTILITIES (v4)
    ========================= */
 
-/* App background gradient (green → petrol) */
+/* App background gradient (green â†’ petrol) */
 @utility bg-gradient-app {
   background-image: linear-gradient(to bottom right, #0f6a52, #0b4b45);
 }
@@ -105,7 +103,7 @@ body {
       rgba(116, 29, 35, 1) 85%);
 }
 
-/* Progress fill gradient (gold → green) */
+/* Progress fill gradient (gold â†’ green) */
 @utility bg-gradient-progress {
   background-image: linear-gradient(to right, #f6c74d, #10b981);
 }
@@ -120,6 +118,14 @@ body {
   border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 85%);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
+}
+
+@utility surface-muted {
+  background-color: color-mix(in oklab,
+      var(--color-surface-1),
+      transparent 15%);
+  border: 1px solid color-mix(in oklab, var(--color-border-subtle), transparent 82%);
+  border-radius: var(--radius-2xl);
 }
 
 /* Pill badges (category / difficulty) */
