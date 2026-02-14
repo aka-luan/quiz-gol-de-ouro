@@ -1,4 +1,5 @@
 const STORAGE_KEYS = {
+  bestStreak: "qbo_best_streak",
   xp: "qbo_xp",
   best: "qbo_best",
   results: "qbo_results",
@@ -13,6 +14,7 @@ const LEGACY_ACHIEVEMENT_IDS: Record<string, string> = {
 };
 
 type RoundResult = {
+  melhorSequencia: number
   acertos: number;
   total: number;
   xpGanho: number;
@@ -89,6 +91,14 @@ function getBestScoreFromLocalStorage(): number {
 
 function saveBestScoreToLocalStorage(score: number): void {
   writeNumber(STORAGE_KEYS.best, score);
+}
+
+function getBestStreakFromLocalStorage(): number {
+  return readNumber(STORAGE_KEYS.bestStreak);
+}
+
+function saveBestStreakToLocalStorage(streak: number): void {
+  writeNumber(STORAGE_KEYS.bestStreak, streak);
 }
 
 function getRoundResultsFromLocalStorage(): RoundResult[] {
@@ -173,6 +183,10 @@ function saveRoundResultToLocalStorage(result: RoundResult): SaveRoundResultOutp
   const bestScore = Math.max(currentBest, result.acertos);
   saveBestScoreToLocalStorage(bestScore);
 
+  const currentBestStreak = getBestStreakFromLocalStorage()
+  const bestStreak = Math.max(currentBestStreak, result.melhorSequencia);
+  saveBestStreakToLocalStorage(bestStreak);
+
   const xpTotal = getExpFromLocalStorage() + result.xpGanho;
   saveExpToLocalStorage(xpTotal);
 
@@ -197,11 +211,13 @@ function saveRoundResultToLocalStorage(result: RoundResult): SaveRoundResultOutp
 export type { CorrectAnswerContext, RoundResult, SaveRoundResultOutput };
 export {
   getBestScoreFromLocalStorage,
+  getBestStreakFromLocalStorage,
   getExpFromLocalStorage,
   getRoundResultsFromLocalStorage,
   getRoundsPlayedFromLocalStorage,
   getUnlockedAchievementsFromLocalStorage,
   saveBestScoreToLocalStorage,
+  saveBestStreakToLocalStorage,
   saveCorrectAnswerProgressToLocalStorage,
   saveExpToLocalStorage,
   saveRoundResultToLocalStorage,

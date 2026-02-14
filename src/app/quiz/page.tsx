@@ -16,6 +16,7 @@ import { BarChart3, Clock, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { de } from "zod/locales";
 
 const QUESTIONS_PER_ROUND = 10;
 
@@ -37,6 +38,7 @@ function quiz() {
   const [locked, setLocked] = useState(false as boolean);
   const [acertos, setAcertos] = useState(0 as number);
   const [streak, setStreak] = useState(0 as number);
+  const [bestStreak, setBestStreak] = useState(0 as number);
   const [xpGanho, setXpGanho] = useState(0 as number);
   const [xpTotal, setXpTotal] = useState(0 as number);
   const [showResults, setShowResults] = useState(false as boolean);
@@ -97,10 +99,14 @@ function quiz() {
     const resposta = questions[idx].resposta;
 
     if (alternativa === resposta) {
+      debugger;
       const dificuldade = questions[idx].dificuldade;
       const updatedStreak = streak + 1;
+      const updatedBestStreak = Math.max(updatedStreak, bestStreak);
       setAcertos((value) => value + 1);
       setStreak(() => updatedStreak);
+
+      setBestStreak(() => updatedBestStreak);
       setXpGanho(
         (value) =>
           value
@@ -120,8 +126,10 @@ function quiz() {
 
   function onClickNext() {
     if (idx + 1 === questions.length) {
+      debugger;
       const { xpTotal: updatedXpTotal, unlockedAchievements } =
         saveRoundResultToLocalStorage({
+          melhorSequencia: bestStreak,
           acertos,
           total: questions.length,
           xpGanho,

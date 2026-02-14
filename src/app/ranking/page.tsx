@@ -1,11 +1,31 @@
 "use client";
-import Button from "@/components/Button"
-import { getRoundResultsFromLocalStorage } from "@/lib/storage";
-import { ArrowUp, Calendar, Crown, Flame, Gamepad2, PersonStanding, Star, Target } from "lucide-react"
+import Button from "@/components/Button";
+import {
+  getBestScoreFromLocalStorage,
+  getBestStreakFromLocalStorage,
+  getExpFromLocalStorage,
+  getRoundResultsFromLocalStorage,
+} from "@/lib/storage";
+import {
+  ArrowUp,
+  Calendar,
+  Crown,
+  Flame,
+  Gamepad2,
+  PersonStanding,
+  Star,
+  Target,
+} from "lucide-react";
 
 function ranking() {
-  const results = getRoundResultsFromLocalStorage()
-  console.log(results)
+  const results = getRoundResultsFromLocalStorage();
+  const best = getBestScoreFromLocalStorage();
+  const exp = getExpFromLocalStorage();
+  const bestStreak = getBestStreakFromLocalStorage();
+  console.log(results);
+  console.log(best);
+  console.log(exp);
+  console.log(bestStreak);
   return (
     <main className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-8 px-8 py-10">
       {/* <p className="text-xl">
@@ -21,15 +41,13 @@ function ranking() {
         <ul className="flex flex-col gap-2 font-mono text-xl">
           <li className="flex">
             <div>
-            <PersonStanding size={120} color="#E9B23E" />
+              <PersonStanding size={120} color="#E9B23E" />
             </div>
             <div className="flex flex-col gap-4 py-4">
-              <span className="text-accent-amber-400 font-bold text-3xl" >
-            Craque
+              <span className="text-accent-amber-400 text-3xl font-bold">
+                Craque
               </span>
-              <span>
-            XP Total: 620
-              </span>
+              <span>XP Total: 620</span>
             </div>
           </li>
           <li className="flex gap-3">
@@ -47,30 +65,30 @@ function ranking() {
         </ul>
       </div>
       <div className="bg-surface-1 card-surface shadow-elevated border-surface-2 w-full rounded-2xl border p-6">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="mb-4 flex items-center gap-2">
           <Crown color="#E9B23E" />
-        <h2 className="font-display text-2xl font-medium">
-          Histórico
-        </h2>
-      </div>
-        <ul className="font-mono text-lg bg-surface-2 card-surface px-3 py-4">
-        {results.length ? results.map((result) => (
-          <li key={result.dataISO} className="flex justify-between p-2">
-            <div className="flex gap-2">
-              <Calendar />
-              {new Date(result.dataISO).toLocaleString()}
-            </div>
-            <div className="flex gap-2">
-              <span>{result.acertos}/{result.total}</span>
-              <span>XP: {result.xpGanho}</span>
-            </div>
-          </li>
-        )) : ''}
-
+          <h2 className="font-display text-2xl font-medium">Histórico</h2>
+        </div>
+        <ul className="bg-surface-2 card-surface px-3 py-4 font-mono text-lg">
+          {results.length ?
+            results.map((result) => (
+              <li key={result.dataISO} className="flex justify-between p-2">
+                <div className="flex gap-2">
+                  <Calendar />
+                  {new Date(result.dataISO).toLocaleString()}
+                </div>
+                <div className="flex">
+                  <span>
+                    {result.acertos}/{result.total}
+                  </span>
+                </div>
+              </li>
+            ))
+          : ""}
         </ul>
       </div>
     </main>
-  )
+  );
 }
 
-export default ranking
+export default ranking;
