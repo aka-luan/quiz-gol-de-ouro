@@ -8,15 +8,16 @@ import {
   computeLevel,
 } from "@/lib/game";
 import {
+  getUnlockedAchievementsFromLocalStorage,
   saveCorrectAnswerProgressToLocalStorage,
   saveRoundResultToLocalStorage,
 } from "@/lib/storage";
-import { useAchievementFeedback } from "@/lib/useAchievementFeedback";
+import { useQuizFeedbackSound } from "@/lib/useQuizFeedbackSound";
 import { BarChart3, Clock, Trophy } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { de } from "zod/locales";
+import { toast } from "sonner";
 
 const QUESTIONS_PER_ROUND = 10;
 
@@ -42,26 +43,68 @@ function quiz() {
   const [xpGanho, setXpGanho] = useState(0 as number);
   const [xpTotal, setXpTotal] = useState(0 as number);
   const [showResults, setShowResults] = useState(false as boolean);
-
-  const { showAchievementFeedback } = useAchievementFeedback();
+  const [answerFeedback, setAnswerFeedback] = useState(
+    null as "correct" | "wrong" | null,
+  );
+  const [floatingXp, setFloatingXp] = useState(0 as number);
+  const [xpFeedbackKey, setXpFeedbackKey] = useState(0 as number);
+  const roundStartUnlockedAchievements = useRef(new Set<string>());
+  const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const floatingXpTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const { playFeedbackSound } = useQuizFeedbackSound();
 
   useEffect(() => {
+    roundStartUnlockedAchievements.current = new Set(
+      getUnlockedAchievementsFromLocalStorage(),
+    );
+
     fetch("/data/questions.json")
       .then((res) => res.json())
       .then((data: Question[]) => {
         setAllQuestions(() => data);
         setQuestions(() => getRandomRoundQuestions(data));
       });
-
-    // const timer = setInterval(() => {
-    //   setTimer((time) => {
-    //     if (time === 0) {
-    //       clearInterval(timer);
-    //       return 0;
-    //     } else return time - 1;
-    //   });
-    // }, 1000);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (feedbackTimeoutRef.current) {
+        clearTimeout(feedbackTimeoutRef.current);
+      }
+
+      if (floatingXpTimeoutRef.current) {
+        clearTimeout(floatingXpTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function triggerFeedback(type: "correct" | "wrong", gainedXp = 0) {
+    setAnswerFeedback(type);
+    playFeedbackSound(type);
+
+    if (feedbackTimeoutRef.current) {
+      clearTimeout(feedbackTimeoutRef.current);
+    }
+
+    feedbackTimeoutRef.current = setTimeout(() => {
+      setAnswerFeedback(null);
+    }, 420);
+
+    if (type !== "correct") return;
+
+    setFloatingXp(gainedXp);
+    setXpFeedbackKey((value) => value + 1);
+
+    if (floatingXpTimeoutRef.current) {
+      clearTimeout(floatingXpTimeoutRef.current);
+    }
+
+    floatingXpTimeoutRef.current = setTimeout(() => {
+      setFloatingXp(0);
+    }, 650);
+  }
 
   function getRandomRoundQuestions(
     questionList: Question[],
@@ -102,16 +145,15 @@ function quiz() {
       const dificuldade = questions[idx].dificuldade;
       const updatedStreak = streak + 1;
       const updatedBestStreak = Math.max(updatedStreak, bestStreak);
+      const gainedXp =
+        calculateDifficultyXP(dificuldade)
+        + calculateStreakBonusXP(updatedStreak);
       setAcertos((value) => value + 1);
       setStreak(() => updatedStreak);
 
       setBestStreak(() => updatedBestStreak);
-      setXpGanho(
-        (value) =>
-          value
-          + calculateDifficultyXP(dificuldade)
-          + calculateStreakBonusXP(updatedStreak),
-      );
+      setXpGanho((value) => value + gainedXp);
+      triggerFeedback("correct", gainedXp);
       saveCorrectAnswerProgressToLocalStorage({
         streak: updatedStreak,
         timerLeft: timer,
@@ -120,6 +162,7 @@ function quiz() {
       });
     } else {
       setStreak(() => 0);
+      triggerFeedback("wrong");
     }
   }
 
@@ -133,7 +176,23 @@ function quiz() {
           xpGanho,
           dataISO: new Date().toISOString(),
         });
-      showAchievementFeedback(unlockedAchievements);
+
+      const hasNewAchievement = unlockedAchievements.some(
+        (achievementId) =>
+          !roundStartUnlockedAchievements.current.has(achievementId),
+      );
+
+      toast.success(`+${xpGanho} XP`, {
+        position: "top-right",
+      });
+
+      if (hasNewAchievement) {
+        toast.success("Nova conquista!", {
+          position: "top-right",
+        });
+      }
+
+      roundStartUnlockedAchievements.current = new Set(unlockedAchievements);
       setXpTotal(() => updatedXpTotal);
       setShowResults(() => true);
       return;
@@ -161,27 +220,67 @@ function quiz() {
     setAcertos(() => 0);
     setStreak(() => 0);
     setXpGanho(() => 0);
+    setFloatingXp(() => 0);
+    setAnswerFeedback(() => null);
     setShowResults(() => false);
+    roundStartUnlockedAchievements.current = new Set(
+      getUnlockedAchievementsFromLocalStorage(),
+    );
   }
 
   function resetQuestion() {
     setPicked(-1);
     setLocked(false);
+    setFloatingXp(0);
+    setAnswerFeedback(null);
   }
 
   const nivel = computeLevel(xpTotal);
 
   return (
     <>
-      <main
+      <motion.main
+        animate={
+          answerFeedback === "wrong" ? { x: [0, -8, 8, -5, 5, 0] } : { x: 0 }
+        }
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className={`bg-surface-1 border-surface-2 shadow-card mx-auto flex max-w-xl flex-col items-center justify-center gap-6 rounded-3xl border px-8 py-10 ${
           showResults ? "pointer-events-none opacity-50" : ""
-        }`}>
-        <div className="border-surface-2 w-full border-b pb-4">
+        } ${answerFeedback === "wrong" ? "border-danger-500/60" : ""}`}>
+        <div className="border-surface-2 w-full border-b pb-4 font-mono">
           <div className="mb-2 flex justify-between">
-            <p>Pergunta {idx + 1} / 10</p>
-            <p>XP: {xpGanho}</p>
-            <p>Streak: {streak}</p>
+            <p>Pergunta {idx + 1}/10</p>
+            <motion.div
+              animate={
+                answerFeedback === "correct" ?
+                  { scale: [1, 1.08, 1] }
+                : { scale: 1 }
+              }
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className="relative">
+              <p
+                className={
+                  answerFeedback === "correct" ? "text-success-500" : ""
+                }>
+                XP: {xpGanho}
+              </p>
+              <AnimatePresence>
+                {floatingXp > 0 ?
+                  <motion.span
+                    key={xpFeedbackKey}
+                    initial={{ opacity: 0, y: 6, scale: 0.9 }}
+                    animate={{ opacity: 1, y: -18, scale: 1 }}
+                    exit={{ opacity: 0, y: -26, scale: 0.92 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    className="text-success-500 pointer-events-none absolute -top-5 -right-2 text-xs font-semibold whitespace-nowrap">
+                    +{floatingXp} XP
+                  </motion.span>
+                : null}
+              </AnimatePresence>
+            </motion.div>
+            <p className={answerFeedback === "wrong" ? "text-danger-500" : ""}>
+              Streak: {streak}
+            </p>
           </div>
           <Progress max={QUESTIONS_PER_ROUND} value={idx + 1} />
         </div>
@@ -200,7 +299,7 @@ function quiz() {
               transition: { duration: 0.25, ease: "easeIn" },
             }}
             className="flex w-full flex-col gap-6">
-            <div className="flex justify-between">
+            <div className="flex justify-between font-mono">
               <p>ICONE Copa do Mundo</p>
               <p>
                 Dificuldade:{" "}
@@ -282,7 +381,7 @@ function quiz() {
             </Button>
           </div>
         </div>
-      </main>
+      </motion.main>
 
       <AnimatePresence>
         {showResults ?
