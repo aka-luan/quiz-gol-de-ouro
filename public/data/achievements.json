@@ -5,7 +5,7 @@
     "description": "Jogue sua primeira rodada.",
     "rarity": "comum",
     "icon": "flag-checkered",
-    "category": "progress",
+    "category": "progresso",
     "trigger": { "type": "rounds_played_total", "value": 1 }
   },
   {
@@ -14,7 +14,7 @@
     "description": "Jogue 10 rodadas no total.",
     "rarity": "incomum",
     "icon": "gamepad-2",
-    "category": "progress",
+    "category": "progresso",
     "trigger": { "type": "rounds_played_total", "value": 10 }
   },
   {
@@ -23,7 +23,7 @@
     "description": "Responda 50 perguntas no total.",
     "rarity": "comum",
     "icon": "message-circle-question",
-    "category": "progress",
+    "category": "progresso",
     "trigger": { "type": "questions_answered_total", "value": 50 }
   },
   {
@@ -32,7 +32,7 @@
     "description": "Responda 200 perguntas no total.",
     "rarity": "raro",
     "icon": "scroll-text",
-    "category": "progress",
+    "category": "progresso",
     "trigger": { "type": "questions_answered_total", "value": 200 }
   },
   {
@@ -41,7 +41,7 @@
     "description": "Faça 5 acertos seguidos.",
     "rarity": "incomum",
     "icon": "flame",
-    "category": "streak",
+    "category": "sequência",
     "trigger": { "type": "streak_reached", "value": 5 }
   },
   {
@@ -50,7 +50,7 @@
     "description": "Faça 10 acertos seguidos.",
     "rarity": "raro",
     "icon": "zap",
-    "category": "streak",
+    "category": "sequência",
     "trigger": { "type": "streak_reached", "value": 10 }
   },
   {

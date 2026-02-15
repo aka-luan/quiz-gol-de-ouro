@@ -64,12 +64,34 @@ const ICONS_BY_NAME: Record<string, LucideIcon> = {
   zap: Zap,
 };
 
-const RARITY_CLASSES: Record<Achievement["rarity"], string> = {
-  comum: "text-text-secondary border-surface-2",
-  incomum: "text-success-500 border-surface-2",
-  raro: "text-accent-amber-400 border-surface-2",
-  epico: "text-primary-500 border-surface-2",
+const RARITY_BADGE_CLASSES: Record<Achievement["rarity"], string> = {
+  comum:
+    "text-text-secondary border-surface-2 bg-deep/80 shadow-[0_0_12px_rgba(184,215,203,0.12)]",
+  incomum:
+    "text-success-500 border-success-500/50 bg-success-500/10 shadow-[0_0_18px_rgba(52,211,153,0.32)]",
+  raro: "text-accent-amber-400 border-accent-amber-400/55 bg-accent-amber-400/10 shadow-[0_0_20px_rgba(246,199,77,0.35)]",
+  epico:
+    "text-primary-500 border-primary-500/55 bg-primary-500/10 shadow-[0_0_22px_rgba(16,185,129,0.38)]",
 };
+
+const RARITY_ICON_GLOW_CLASSES: Record<Achievement["rarity"], string> = {
+  comum: "shadow-[0_0_12px_rgba(184,215,203,0.12)]",
+  incomum: "shadow-[0_0_16px_rgba(52,211,153,0.26)]",
+  raro: "shadow-[0_0_18px_rgba(246,199,77,0.3)]",
+  epico: "shadow-[0_0_20px_rgba(16,185,129,0.36)]",
+};
+
+function normalizeRarity(rarity: string): Achievement["rarity"] {
+  const normalized = rarity
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  if (normalized === "epico") return "epico";
+  if (normalized === "raro") return "raro";
+  if (normalized === "incomum") return "incomum";
+  return "comum";
+}
 
 function Conquistas() {
   const [achievements, setAchievements] = useState([] as Achievement[]);
@@ -118,7 +140,7 @@ function Conquistas() {
         <div className="relative z-10 flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-2">
             <p className="text-accent-amber-400 font-mono text-xs tracking-[0.14em] uppercase">
-              Colecao
+              Coleção
             </p>
             <h1 className="font-display text-3xl font-semibold sm:text-4xl">
               Conquistas
@@ -129,7 +151,7 @@ function Conquistas() {
           </div>
 
           <div className="bg-surface-1 border-surface-2 rounded-2xl border px-4 py-3">
-            <p className="text-text-secondary text-xs">Concluidas</p>
+            <p className="text-text-secondary text-xs">Concluídas</p>
             <p className="text-accent-amber-400 font-mono text-2xl font-bold">
               {unlockedTotal}/{achievements.length}
             </p>
@@ -140,7 +162,7 @@ function Conquistas() {
       <section className="card-surface border-surface-2 border p-4 sm:p-5">
         <div className="mb-3 flex items-center justify-between gap-3">
           <p className="font-display text-2xl font-semibold">Progresso geral</p>
-          <span className="badge text-[11px]">temporada</span>
+          <span className="badge text-[11px]">Temporada</span>
         </div>
         {achievements.length > 0 ?
           <Progress max={achievements.length} value={unlockedTotal} />
@@ -154,16 +176,20 @@ function Conquistas() {
         {achievements.map((achievement) => {
           const isUnlocked = unlockedAchievementsSet.has(achievement.id);
           const Icon = ICONS_BY_NAME[achievement.icon] ?? Trophy;
+          const rarity = normalizeRarity(achievement.rarity);
 
           return (
             <article
               key={achievement.id}
               className={`bg-surface-1 border-surface-2 shadow-elevated rounded-2xl border p-4 transition ${
-                isUnlocked ? "" : "opacity-70"
+                isUnlocked ? "" : "opacity-45 grayscale-[0.4] saturate-50"
               }`}>
               <div className="mb-3 flex items-start justify-between gap-3">
                 <div className="flex min-w-0 items-start gap-3">
-                  <div className="bg-deep border-surface-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border">
+                  <div
+                    className={`bg-deep border-surface-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${
+                      isUnlocked ? RARITY_ICON_GLOW_CLASSES[rarity] : ""
+                    }`}>
                     {isUnlocked ?
                       <Icon className="text-accent-amber-400 h-5 w-5" />
                     : <Lock className="text-text-secondary h-5 w-5" />}
@@ -191,8 +217,12 @@ function Conquistas() {
 
               <div className="flex items-center justify-between gap-2 border-t border-white/10 pt-3">
                 <span
-                  className={`bg-deep rounded-full border px-2 py-1 font-mono text-[11px] uppercase ${RARITY_CLASSES[achievement.rarity]}`}>
-                  {achievement.rarity}
+                  className={`rounded-full border px-2 py-1 font-mono text-[11px] uppercase transition ${
+                    isUnlocked ?
+                      RARITY_BADGE_CLASSES[rarity]
+                    : "bg-deep/70 border-surface-2 text-text-secondary"
+                  }`}>
+                  {rarity}
                 </span>
                 <span className="text-text-secondary font-mono text-[11px] uppercase">
                   {achievement.category}

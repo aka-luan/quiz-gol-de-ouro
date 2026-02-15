@@ -52,7 +52,7 @@
   --foreground: var(--color-text-primary);
 }
 
-@media (prefers-color-scheme: light) {
+@média (prefers-color-scheme: light) {
   :root {
     --background: #ffffff;
     --foreground: #171717;

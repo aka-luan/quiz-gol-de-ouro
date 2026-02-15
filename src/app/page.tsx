@@ -1,23 +1,29 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, CirclePlay, Sparkles, Trophy } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  CirclePlay,
+  Sparkles,
+  Trophy,
+} from "lucide-react";
 
 const APP_HOOKS = [
   {
     href: "/quiz",
     title: "Iniciar quiz",
-    description: "Rodada rapida com 10 perguntas.",
+    description: "Rodada rápida com 10 perguntas.",
     icon: CirclePlay,
   },
   {
     href: "/ranking",
     title: "Ver ranking",
-    description: "Acompanhe sua evolucao no jogo.",
+    description: "Acompanhe sua evolução no jogo.",
     icon: BarChart3,
   },
   {
     href: "/conquistas",
     title: "Conquistas",
-    description: "Escolha seu proximo desafio.",
+    description: "Escolha seu próximo desafio.",
     icon: Trophy,
   },
 ] as const;
@@ -37,7 +43,7 @@ const page = () => {
             Pronto para entrar em campo?
           </h1>
           <p className="text-text-secondary mt-3 max-w-xl text-sm sm:text-base">
-            Responda perguntas, mantenha sequencia e avance no ranking.
+            Responda perguntas, mantenha sequência e avance no ranking.
           </p>
 
           <Link
@@ -46,11 +52,11 @@ const page = () => {
             Jogar
           </Link>
 
-          <div className="mt-5 flex items-center gap-2">
+          {/* <div className="mt-5 flex items-center gap-2">
             <span className="h-2 w-6 rounded-full bg-accent-amber-400" />
             <span className="bg-surface-2 h-2 w-2 rounded-full" />
             <span className="bg-surface-2 h-2 w-2 rounded-full" />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -62,15 +68,17 @@ const page = () => {
             <Link
               key={item.href}
               href={item.href}
-              className="bg-surface-1 border-surface-2 shadow-elevated group flex items-start gap-3 rounded-2xl border p-4 transition hover:border-accent-amber-500/50">
+              className="bg-surface-1 border-surface-2 shadow-elevated group hover:border-accent-amber-500/50 flex items-start gap-3 rounded-2xl border p-4 transition">
               <span className="bg-deep mt-0.5 rounded-xl p-2">
-                <Icon className="h-4 w-4 text-accent-amber-400" />
+                <Icon className="text-accent-amber-400 h-4 w-4" />
               </span>
 
               <span className="flex min-w-0 flex-1 flex-col gap-1">
                 <span className="text-sm font-semibold">{item.title}</span>
-                <span className="text-text-secondary text-xs">{item.description}</span>
-                <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-accent-amber-400">
+                <span className="text-text-secondary text-xs">
+                  {item.description}
+                </span>
+                <span className="text-accent-amber-400 mt-1 inline-flex items-center gap-1 text-xs font-semibold">
                   Abrir
                   <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
                 </span>
@@ -82,10 +90,11 @@ const page = () => {
 
       <section className="bg-surface-1 border-surface-2 flex items-center gap-3 rounded-2xl border px-4 py-3">
         <span className="bg-deep rounded-lg p-2">
-          <Sparkles className="h-4 w-4 text-accent-amber-400" />
+          <Sparkles className="text-accent-amber-400 h-4 w-4" />
         </span>
         <p className="text-text-secondary text-sm">
-          Dica rapida: termine uma rodada e ja confira ranking e conquistas para definir o proximo alvo.
+          Dica rápida: termine uma rodada e já confira ranking e conquistas para
+          definir o próximo alvo.
         </p>
       </section>
     </main>

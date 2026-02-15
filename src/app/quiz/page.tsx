@@ -27,8 +27,38 @@ type Question = {
   pergunta: string;
   opcoes: string[];
   resposta: string;
-  dificuldade: "facil" | "media" | "dificil";
+  dificuldade: "fácil" | "média" | "difícil";
 };
+
+type AchievementMeta = {
+  id: string;
+  name: string;
+  rarity: string;
+};
+
+type AchievementMap = Record<string, Omit<AchievementMeta, "id">>;
+
+const ACHIEVEMENT_RARITY_BADGE: Record<string, string> = {
+  comum:
+    "text-text-secondary border-surface-2 bg-deep/80 shadow-[0_0_12px_rgba(184,215,203,0.12)]",
+  incomum:
+    "text-success-500 border-success-500/50 bg-success-500/10 shadow-[0_0_18px_rgba(52,211,153,0.3)]",
+  raro: "text-accent-amber-400 border-accent-amber-400/55 bg-accent-amber-400/10 shadow-[0_0_20px_rgba(246,199,77,0.34)]",
+  epico:
+    "text-primary-500 border-primary-500/55 bg-primary-500/10 shadow-[0_0_22px_rgba(16,185,129,0.36)]",
+};
+
+function normalizeRarity(rarity: string | undefined): string {
+  const normalized = (rarity ?? "comum")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  if (normalized === "epico") return "epico";
+  if (normalized === "raro") return "raro";
+  if (normalized === "incomum") return "incomum";
+  return "comum";
+}
 
 function quiz() {
   const [allQuestions, setAllQuestions] = useState([] as Question[]);
@@ -48,6 +78,10 @@ function quiz() {
   );
   const [floatingXp, setFloatingXp] = useState(0 as number);
   const [xpFeedbackKey, setXpFeedbackKey] = useState(0 as number);
+  const [achievementsMap, setAchievementsMap] = useState({} as AchievementMap);
+  const [newlyUnlockedAchievements, setNewlyUnlockedAchievements] = useState(
+    [] as string[],
+  );
   const roundStartUnlockedAchievements = useRef(new Set<string>());
   const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const floatingXpTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
@@ -65,6 +99,18 @@ function quiz() {
       .then((data: Question[]) => {
         setAllQuestions(() => data);
         setQuestions(() => getRandomRoundQuestions(data));
+      });
+
+    fetch("/data/achievements.json")
+      .then((res) => res.json())
+      .then((data: AchievementMeta[]) => {
+        const map = Object.fromEntries(
+          data.map((achievement) => [
+            achievement.id,
+            { name: achievement.name, rarity: achievement.rarity },
+          ]),
+        ) as AchievementMap;
+        setAchievementsMap(() => map);
       });
   }, []);
 
@@ -177,10 +223,11 @@ function quiz() {
           dataISO: new Date().toISOString(),
         });
 
-      const hasNewAchievement = unlockedAchievements.some(
+      const unlockedThisRound = unlockedAchievements.filter(
         (achievementId) =>
           !roundStartUnlockedAchievements.current.has(achievementId),
       );
+      const hasNewAchievement = unlockedThisRound.length > 0;
 
       toast.success(`+${xpGanho} XP`, {
         position: "top-right",
@@ -192,6 +239,7 @@ function quiz() {
         });
       }
 
+      setNewlyUnlockedAchievements(() => unlockedThisRound);
       roundStartUnlockedAchievements.current = new Set(unlockedAchievements);
       setXpTotal(() => updatedXpTotal);
       setShowResults(() => true);
@@ -222,6 +270,7 @@ function quiz() {
     setXpGanho(() => 0);
     setFloatingXp(() => 0);
     setAnswerFeedback(() => null);
+    setNewlyUnlockedAchievements(() => []);
     setShowResults(() => false);
     roundStartUnlockedAchievements.current = new Set(
       getUnlockedAchievementsFromLocalStorage(),
@@ -303,7 +352,12 @@ function quiz() {
             }}
             className="bg-surface-1 border-surface-2 flex w-full flex-col gap-5 rounded-2xl border p-4 sm:p-5">
             <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-sm">
-              <p className="badge text-[11px]">rodada oficial</p>
+              <p className="text-text-secondary">
+                Categoria:{" "}
+                <span className="text-text-primary capitalize">
+                  {questions[idx]?.categoria}
+                </span>
+              </p>
               <p className="text-text-secondary">
                 Dificuldade:{" "}
                 <span className="text-text-primary capitalize">
@@ -392,7 +446,7 @@ function quiz() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6 backdrop-blur-sm">
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-6 backdrop-blur-md">
             <motion.section
               role="dialog"
               aria-modal="true"
@@ -402,54 +456,100 @@ function quiz() {
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="card-surface border-surface-2 relative w-full max-w-2xl overflow-hidden border p-5 sm:p-6">
-              <h2
-                id="result-modal-title"
-                className="font-display text-center text-4xl font-semibold sm:text-5xl">
-                Resultado
-              </h2>
-              <div className="border-surface-2 my-4 border-b"></div>
-              <div className="border-surface-2 mb-4 flex justify-center border-b pb-4">
-                <div className="bg-gradient-button shadow-elevated rounded-full p-4">
-                  <Trophy className="text-deep h-10 w-10" />
-                </div>
-              </div>
-              <p className="mb-5 text-center text-2xl font-medium sm:text-3xl">
-                Parabens! Voce concluiu o quiz!
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
-                  <p className="text-text-secondary text-sm">Acertos</p>
-                  <p className="text-success-500 font-mono text-3xl font-bold">
-                    {acertos}/{QUESTIONS_PER_ROUND}
+              <div className="pointer-events-none absolute -top-12 -right-16 h-40 w-40 rounded-full bg-amber-300/20 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-16 h-40 w-40 rounded-full bg-emerald-300/20 blur-3xl" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="badge text-[11px] uppercase">Resultado</span>
+                  <p className="text-text-secondary font-mono text-xs tracking-[0.08em] uppercase">
+                    Rodada finalizada
                   </p>
                 </div>
-                <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
-                  <p className="text-text-secondary text-sm">XP ganhos</p>
-                  <p className="text-accent-amber-400 font-mono text-3xl font-bold">
-                    +{xpGanho} XP
-                  </p>
+
+                <div className="mt-4 flex items-center gap-4">
+                  <div className="bg-gradient-button shadow-elevated rounded-2xl p-3.5">
+                    <Trophy className="text-deep h-7 w-7" />
+                  </div>
+                  <div>
+                    <h2
+                      id="result-modal-title"
+                      className="font-display text-3xl leading-none font-semibold sm:text-4xl">
+                      Fim da rodada
+                    </h2>
+                    <p className="text-text-secondary mt-1 text-sm">
+                      Boa partida! Inicie outra rodada para acumular mais XP e
+                      subir de nível.
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
-                  <p className="text-text-secondary text-sm">XP total</p>
-                  <p className="font-mono text-3xl font-bold">{xpTotal} XP</p>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
+                    <p className="text-text-secondary text-sm">Acertos</p>
+                    <p className="text-success-500 font-mono text-3xl font-bold">
+                      {acertos}/{QUESTIONS_PER_ROUND}
+                    </p>
+                  </div>
+                  <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
+                    <p className="text-text-secondary text-sm">XP ganhos</p>
+                    <p className="text-accent-amber-400 font-mono text-3xl font-bold">
+                      +{xpGanho} XP
+                    </p>
+                  </div>
+                  <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
+                    <p className="text-text-secondary text-sm">XP total</p>
+                    <p className="font-mono text-3xl font-bold">{xpTotal} XP</p>
+                  </div>
+                  <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
+                    <p className="text-text-secondary text-sm">Nível atual</p>
+                    <p className="font-mono text-3xl font-bold">{nivel}</p>
+                  </div>
                 </div>
-                <div className="bg-deep border-surface-2 shadow-elevated rounded-2xl border p-4">
-                  <p className="text-text-secondary text-sm">Nivel</p>
-                  <p className="font-mono text-3xl font-bold">{nivel}</p>
+
+                {newlyUnlockedAchievements.length > 0 ?
+                  <section className="bg-surface-1 border-surface-2 mt-4 rounded-2xl border p-3.5">
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <p className="font-display text-lg font-semibold">
+                        Desbloqueadas nesta partida
+                      </p>
+                      <span className="badge text-[11px]">
+                        {newlyUnlockedAchievements.length}
+                      </span>
+                    </div>
+
+                    <ul className="flex flex-wrap gap-2">
+                      {newlyUnlockedAchievements.map((achievementId) => {
+                        const achievement = achievementsMap[achievementId];
+                        const rarity = normalizeRarity(achievement?.rarity);
+
+                        return (
+                          <li
+                            key={achievementId}
+                            className={`rounded-full border px-2.5 py-1 font-mono text-[11px] uppercase ${
+                              ACHIEVEMENT_RARITY_BADGE[rarity]
+                            }`}>
+                            {achievement?.name ?? achievementId}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </section>
+                : null}
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <Button
+                    className="bg-gradient-button shadow-elevated text-deep flex items-center justify-center gap-2 text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]"
+                    onClick={startNewRound}>
+                    Jogar outra rodada
+                  </Button>
+                  <Link
+                    href="/ranking"
+                    className="bg-deep border-surface-2 text-text-primary shadow-elevated inline-flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-4 text-center text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]">
+                    <BarChart3 className="h-5 w-5" />
+                    Ver ranking
+                  </Link>
                 </div>
-              </div>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <Button
-                  className="bg-gradient-button shadow-elevated text-deep flex items-center justify-center gap-2 text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={startNewRound}>
-                  Jogar novamente
-                </Button>
-                <Link
-                  href="/ranking"
-                  className="bg-deep border-surface-2 text-text-primary shadow-elevated inline-flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-4 text-center text-base font-semibold transition hover:scale-[1.02] active:scale-[0.98]">
-                  <BarChart3 className="h-5 w-5" />
-                  Ver ranking
-                </Link>
               </div>
             </motion.section>
           </motion.div>

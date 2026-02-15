@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, CirclePlay, Home, ShieldCheck, Trophy } from "lucide-react";
+import { BarChart3, CirclePlay, Home, Trophy } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "Inicio", icon: Home },
@@ -24,14 +24,11 @@ function Header() {
       <div className="card-surface border-surface-2 mb-4 flex items-center justify-between border px-4 py-3">
         <div className="flex items-center gap-3">
           <span className="bg-gradient-button text-deep rounded-lg p-1.5">
-            <ShieldCheck className="h-4 w-4" />
+            <Trophy className="h-4 w-4" />
           </span>
           <div>
             <p className="font-display text-sm leading-none font-semibold tracking-wide uppercase">
               Quiz Bola de Ouro
-            </p>
-            <p className="text-text-secondary font-mono text-[11px] leading-none uppercase tracking-[0.12em]">
-              Modo app
             </p>
           </div>
         </div>
@@ -48,7 +45,7 @@ function Header() {
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-medium transition ${
                   active ?
-                    "bg-gradient-button text-deep border-transparent shadow-elevated"
+                    "bg-gradient-button text-deep shadow-elevated border-transparent"
                   : "bg-surface-1 border-surface-2 text-text-secondary hover:text-text-primary"
                 }`}>
                 <Icon className="h-4 w-4" />

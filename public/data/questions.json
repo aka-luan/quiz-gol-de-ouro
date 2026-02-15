@@ -1,112 +1,2602 @@
 [
-  {"id":1,"categoria":"Regras","pergunta":"Quantos jogadores cada equipe deve ter em campo no início de uma partida de futebol?","opcoes":["9","10","11","12"],"resposta":"11","dificuldade":"facil"},
-  {"id":2,"categoria":"Regras","pergunta":"Qual é a duração padrão de uma partida de futebol profissional (sem contar acréscimos)?","opcoes":["70 minutos","80 minutos","90 minutos","100 minutos"],"resposta":"90 minutos","dificuldade":"facil"},
-  {"id":3,"categoria":"Regras","pergunta":"Qual parte do corpo o goleiro pode usar dentro da própria área que os demais jogadores não podem?","opcoes":["Cabeça","Braços e mãos","Peito","Coxa"],"resposta":"Braços e mãos","dificuldade":"facil"},
-  {"id":4,"categoria":"Regras","pergunta":"Quantos árbitros assistentes de linha (bandeirinhas) fazem parte tradicionalmente da equipe de arbitragem?","opcoes":["1","2","3","4"],"resposta":"2","dificuldade":"facil"},
-  {"id":5,"categoria":"Regras","pergunta":"Qual é o nome da infração em que um jogador recebe a bola em posição adiantada à linha da bola e penúltimo defensor?","opcoes":["Falta tática","Impedimento","Obstrução","Perigo de jogo"],"resposta":"Impedimento","dificuldade":"facil"},
-  {"id":6,"categoria":"Regras","pergunta":"Qual é o reinício do jogo após a bola ultrapassar completamente a linha de fundo tocada por um defensor?","opcoes":["Tiro de meta","Escanteio","Lateral","Bola ao chão"],"resposta":"Escanteio","dificuldade":"facil"},
-  {"id":7,"categoria":"Regras","pergunta":"Qual cartão o árbitro mostra para expulsar um jogador?","opcoes":["Azul","Amarelo","Vermelho","Preto"],"resposta":"Vermelho","dificuldade":"facil"},
-  {"id":8,"categoria":"Regras","pergunta":"Quantas substituições são tradicionalmente permitidas em competições profissionais modernas em tempo regulamentar (sem contar eventuais regras locais de prorrogação)?","opcoes":["2","3","5","7"],"resposta":"5","dificuldade":"media"},
-  {"id":9,"categoria":"Regras","pergunta":"Qual é a distância mínima da barreira em uma cobrança de falta direta?","opcoes":["5 metros","7,15 metros","9,15 metros","11 metros"],"resposta":"9,15 metros","dificuldade":"media"},
-  {"id":10,"categoria":"Regras","pergunta":"Qual é a distância da marca do pênalti até a linha do gol?","opcoes":["9,15 m","10 m","11 m","12 m"],"resposta":"11 m","dificuldade":"media"},
-
-  {"id":11,"categoria":"Copa do Mundo","pergunta":"Em que ano ocorreu a primeira Copa do Mundo da FIFA?","opcoes":["1926","1930","1934","1938"],"resposta":"1930","dificuldade":"facil"},
-  {"id":12,"categoria":"Copa do Mundo","pergunta":"Qual país sediou e venceu a primeira Copa do Mundo?","opcoes":["Uruguai","Brasil","Itália","França"],"resposta":"Uruguai","dificuldade":"media"},
-  {"id":13,"categoria":"Copa do Mundo","pergunta":"Qual seleção é a maior campeã da Copa do Mundo?","opcoes":["Alemanha","Brasil","Itália","Argentina"],"resposta":"Brasil","dificuldade":"facil"},
-  {"id":14,"categoria":"Copa do Mundo","pergunta":"Qual seleção venceu a Copa do Mundo de 1958 revelando Pelé?","opcoes":["Brasil","Alemanha Ocidental","Hungria","Suécia"],"resposta":"Brasil","dificuldade":"facil"},
-  {"id":15,"categoria":"Copa do Mundo","pergunta":"Quem marcou o gol decisivo do 'Maracanazo' em 1950?","opcoes":["Zizinho","Obdulio Varela","Alcides Ghiggia","Juan Schiaffino"],"resposta":"Alcides Ghiggia","dificuldade":"dificil"},
-  {"id":16,"categoria":"Copa do Mundo","pergunta":"Qual país venceu a Copa do Mundo de 2002?","opcoes":["Alemanha","Brasil","França","Itália"],"resposta":"Brasil","dificuldade":"facil"},
-  {"id":17,"categoria":"Copa do Mundo","pergunta":"Quem venceu a Copa do Mundo de 2010?","opcoes":["Espanha","Holanda","Alemanha","Itália"],"resposta":"Espanha","dificuldade":"media"},
-  {"id":18,"categoria":"Copa do Mundo","pergunta":"Quem venceu a Copa do Mundo de 2014 disputada no Brasil?","opcoes":["Argentina","Brasil","Alemanha","Espanha"],"resposta":"Alemanha","dificuldade":"media"},
-  {"id":19,"categoria":"Copa do Mundo","pergunta":"Quem venceu a Copa do Mundo de 2018?","opcoes":["Croácia","França","Bélgica","Inglaterra"],"resposta":"França","dificuldade":"media"},
-  {"id":20,"categoria":"Copa do Mundo","pergunta":"Quem venceu a Copa do Mundo de 2022 no Catar?","opcoes":["França","Argentina","Croácia","Marrocos"],"resposta":"Argentina","dificuldade":"facil"},
-
-  {"id":21,"categoria":"Jogadores","pergunta":"Qual jogador é famoso como 'Rei do Futebol'?","opcoes":["Maradona","Pelé","Cruyff","Eusébio"],"resposta":"Pelé","dificuldade":"facil"},
-  {"id":22,"categoria":"Jogadores","pergunta":"Qual jogador é apelidado de 'La Pulga'?","opcoes":["Cristiano Ronaldo","Lionel Messi","Neymar","Aguero"],"resposta":"Lionel Messi","dificuldade":"facil"},
-  {"id":23,"categoria":"Jogadores","pergunta":"Qual jogador é conhecido como 'Fenômeno'?","opcoes":["Ronaldinho Gaúcho","Romário","Ronaldo Nazário","Rivaldo"],"resposta":"Ronaldo Nazário","dificuldade":"facil"},
-  {"id":24,"categoria":"Jogadores","pergunta":"Qual camisa geralmente é associada ao armador clássico (meia) no futebol?","opcoes":["7","8","9","10"],"resposta":"10","dificuldade":"facil"},
-  {"id":25,"categoria":"Jogadores","pergunta":"Qual jogador marcou o 'Gol do Século' em 1986 driblando vários adversários?","opcoes":["Zico","Maradona","Platini","Lineker"],"resposta":"Maradona","dificuldade":"media"},
-  {"id":26,"categoria":"Jogadores","pergunta":"Qual brasileiro ganhou duas vezes o prêmio FIFA de Melhor do Mundo no início dos anos 2000?","opcoes":["Kaká","Rivaldo","Ronaldinho Gaúcho","Romário"],"resposta":"Ronaldinho Gaúcho","dificuldade":"media"},
-  {"id":27,"categoria":"Jogadores","pergunta":"Qual jogador português venceu o prêmio de Melhor do Mundo várias vezes na era moderna?","opcoes":["Figo","Deco","Cristiano Ronaldo","Nani"],"resposta":"Cristiano Ronaldo","dificuldade":"facil"},
-  {"id":28,"categoria":"Jogadores","pergunta":"Qual atacante brasileiro ficou famoso pelo 'peixinho' em 1970?","opcoes":["Tostão","Pelé","Gérson","Jairzinho"],"resposta":"Jairzinho","dificuldade":"dificil"},
-  {"id":29,"categoria":"Jogadores","pergunta":"Qual zagueiro italiano ficou famoso pelo estilo 'catenaccio' e o número 6?","opcoes":["Cannavaro","Baresi","Maldini","Nesta"],"resposta":"Baresi","dificuldade":"dificil"},
-  {"id":30,"categoria":"Jogadores","pergunta":"Quem é o único jogador a conquistar três Copas do Mundo como atleta?","opcoes":["Cafu","Pelé","Maradona","Beckenbauer"],"resposta":"Pelé","dificuldade":"media"},
-
-  {"id":31,"categoria":"Clubes","pergunta":"Qual clube brasileiro é conhecido como 'Furacão'?","opcoes":["Athletico Paranaense","Flamengo","Corinthians","Grêmio"],"resposta":"Athletico Paranaense","dificuldade":"media"},
-  {"id":32,"categoria":"Clubes","pergunta":"Qual clube argentino manda jogos no estádio La Bombonera?","opcoes":["River Plate","Boca Juniors","Racing","Independiente"],"resposta":"Boca Juniors","dificuldade":"facil"},
-  {"id":33,"categoria":"Clubes","pergunta":"Qual clube espanhol manda jogos no Camp Nou (renomeado Spotify Camp Nou)?","opcoes":["Real Madrid","Atlético de Madrid","Barcelona","Valencia"],"resposta":"Barcelona","dificuldade":"facil"},
-  {"id":34,"categoria":"Clubes","pergunta":"Qual clube italiano é apelidado de 'Velha Senhora'?","opcoes":["Milan","Inter de Milão","Juventus","Roma"],"resposta":"Juventus","dificuldade":"facil"},
-  {"id":35,"categoria":"Clubes","pergunta":"Qual clube inglês é associado ao hino 'You'll Never Walk Alone'?","opcoes":["Chelsea","Arsenal","Manchester United","Liverpool"],"resposta":"Liverpool","dificuldade":"facil"},
-  {"id":36,"categoria":"Clubes","pergunta":"Qual é o clássico conhecido como 'El Clásico'?","opcoes":["Barcelona x Real Madrid","Milan x Inter","Boca x River","Benfica x Porto"],"resposta":"Barcelona x Real Madrid","dificuldade":"facil"},
-  {"id":37,"categoria":"Clubes","pergunta":"Qual clube alemão domina historicamente a Bundesliga?","opcoes":["Borussia Dortmund","RB Leipzig","Bayer Leverkusen","Bayern de Munique"],"resposta":"Bayern de Munique","dificuldade":"facil"},
-  {"id":38,"categoria":"Clubes","pergunta":"Qual clube português é conhecido como 'Leões'?","opcoes":["Porto","Benfica","Sporting CP","Braga"],"resposta":"Sporting CP","dificuldade":"media"},
-  {"id":39,"categoria":"Clubes","pergunta":"Qual clube francês tem o Parc des Princes como estádio?","opcoes":["Lyon","Marseille","PSG","Monaco"],"resposta":"PSG","dificuldade":"facil"},
-  {"id":40,"categoria":"Clubes","pergunta":"Qual equipe brasileira ficou marcada pela 'Democracia' no início dos anos 1980?","opcoes":["Flamengo","São Paulo","Palmeiras","Corinthians"],"resposta":"Corinthians","dificuldade":"media"},
-
-  {"id":41,"categoria":"Competições","pergunta":"Qual competição de clubes é considerada a principal da Europa?","opcoes":["Liga Europa","Conference League","Liga dos Campeões (Champions League)","Supercopa Europeia"],"resposta":"Liga dos Campeões (Champions League)","dificuldade":"facil"},
-  {"id":42,"categoria":"Competições","pergunta":"Qual é o principal torneio de seleções da América do Sul?","opcoes":["Copa Ouro","Copa América","Eurocopa","Copa das Nações Africanas"],"resposta":"Copa América","dificuldade":"facil"},
-  {"id":43,"categoria":"Competições","pergunta":"A Libertadores da América é organizada por qual confederação?","opcoes":["UEFA","CONMEBOL","CONCACAF","AFC"],"resposta":"CONMEBOL","dificuldade":"facil"},
-  {"id":44,"categoria":"Competições","pergunta":"Qual competição reúne campeões continentais em formato mundial de clubes (modelo recente da FIFA)?","opcoes":["Copa Intercontinental antiga","Mundial de Clubes da FIFA","Supercopa Intercontinental","Taça Toyota"],"resposta":"Mundial de Clubes da FIFA","dificuldade":"media"},
-  {"id":45,"categoria":"Competições","pergunta":"Qual competição de seleções é disputada a cada quatro anos na Europa?","opcoes":["Copa América","Eurocopa","Liga das Nações da UEFA","Copa das Confederações"],"resposta":"Eurocopa","dificuldade":"facil"},
-  {"id":46,"categoria":"Competições","pergunta":"Qual torneio nacional brasileiro tem formato de pontos corridos desde 2003?","opcoes":["Copa do Brasil","Campeonato Brasileiro Série A","Supercopa","Copa Verde"],"resposta":"Campeonato Brasileiro Série A","dificuldade":"media"},
-  {"id":47,"categoria":"Competições","pergunta":"Qual competição inglesa tem partidas de mata-mata envolvendo times de várias divisões, incluindo o 'Giant Killing'?","opcoes":["Premier League","FA Cup","Carabao Cup","Community Shield"],"resposta":"FA Cup","dificuldade":"media"},
-  {"id":48,"categoria":"Competições","pergunta":"Qual competição é conhecida por jogos às terças e quartas na Europa?","opcoes":["Liga Europa","Liga dos Campeões (Champions League)","Conference League","Supercopa"],"resposta":"Liga dos Campeões (Champions League)","dificuldade":"facil"},
-  {"id":49,"categoria":"Competições","pergunta":"Qual torneio continental africano de seleções é reconhecido pela sigla CAN?","opcoes":["Copa Árabe","Copa da África","Copa das Nações Africanas","Copa Magrebina"],"resposta":"Copa das Nações Africanas","dificuldade":"media"},
-  {"id":50,"categoria":"Competições","pergunta":"Qual competição interseleções da UEFA estreou em 2018 com divisões e promoção/rebaixamento?","opcoes":["Eurocopa","Liga das Nações da UEFA","Copa das Confederações","Taça Interliga"],"resposta":"Liga das Nações da UEFA","dificuldade":"dificil"},
-
-  {"id":51,"categoria":"História","pergunta":"Quem é conhecido por liderar a 'Laranja Mecânica' de 1974?","opcoes":["Johan Cruyff","Ruud Gullit","Marco van Basten","Frank Rijkaard"],"resposta":"Johan Cruyff","dificuldade":"media"},
-  {"id":52,"categoria":"História","pergunta":"Qual técnico conquistou a Copa do Mundo de 1970 com o Brasil?","opcoes":["Telê Santana","Vicente Feola","Zagallo","Parreira"],"resposta":"Zagallo","dificuldade":"media"},
-  {"id":53,"categoria":"História","pergunta":"Qual seleção ficou famosa como 'Máquina de 82'?","opcoes":["Brasil","Alemanha","Itália","Argentina"],"resposta":"Brasil","dificuldade":"media"},
-  {"id":54,"categoria":"História","pergunta":"Qual país venceu a Copa do Mundo de 1966?","opcoes":["Alemanha","Inglaterra","Portugal","URSS"],"resposta":"Inglaterra","dificuldade":"media"},
-  {"id":55,"categoria":"História","pergunta":"Qual seleção perdeu duas finais seguidas de Copa em 1986 e 1990?","opcoes":["Alemanha Ocidental","Argentina","Holanda","França"],"resposta":"Alemanha Ocidental","dificuldade":"dificil"},
-  {"id":56,"categoria":"História","pergunta":"Quem venceu a Copa do Mundo de 1998 em casa?","opcoes":["Itália","França","Brasil","Croácia"],"resposta":"França","dificuldade":"media"},
-  {"id":57,"categoria":"História","pergunta":"Qual seleção protagonizou o 'Milagre de Berna' em 1954?","opcoes":["Hungria","Alemanha Ocidental","Áustria","Suíça"],"resposta":"Alemanha Ocidental","dificuldade":"dificil"},
-  {"id":58,"categoria":"História","pergunta":"Quem foi o capitão do Brasil no tricampeonato de 1970?","opcoes":["Carlos Alberto Torres","Bellini","Djalma Santos","Gérson"],"resposta":"Carlos Alberto Torres","dificuldade":"media"},
-  {"id":59,"categoria":"História","pergunta":"Qual seleção é conhecida como 'Azurra'?","opcoes":["França","Itália","Uruguai","Espanha"],"resposta":"Itália","dificuldade":"facil"},
-  {"id":60,"categoria":"História","pergunta":"Qual país sediou a Copa do Mundo de 1978?","opcoes":["Argentina","Espanha","Alemanha","México"],"resposta":"Argentina","dificuldade":"media"},
-
-  {"id":61,"categoria":"Curiosidades","pergunta":"Qual é o nome do prêmio concedido ao artilheiro da Copa do Mundo?","opcoes":["Bola de Ouro","Chuteira de Ouro","Luvas de Ouro","Troféu Fair Play"],"resposta":"Chuteira de Ouro","dificuldade":"facil"},
-  {"id":62,"categoria":"Curiosidades","pergunta":"Qual é o termo para três gols marcados por um mesmo jogador na mesma partida?","opcoes":["Double","Hat-trick","Poker","Quatrick"],"resposta":"Hat-trick","dificuldade":"facil"},
-  {"id":63,"categoria":"Curiosidades","pergunta":"Qual é a medida mínima aproximada da largura de um campo profissional segundo as Regras do Jogo?","opcoes":["45 m","50 m","64 m","90 m"],"resposta":"64 m","dificuldade":"dificil"},
-  {"id":64,"categoria":"Curiosidades","pergunta":"Como é chamado o gesto de passar a bola por entre as pernas do adversário?","opcoes":["Caneta","Chapéu","Elástico","Letra"],"resposta":"Caneta","dificuldade":"facil"},
-  {"id":65,"categoria":"Curiosidades","pergunta":"Como se chama o drible que lança a bola por cima do adversário?","opcoes":["Pedalada","Elástico","Chapéu","Carretilha"],"resposta":"Chapéu","dificuldade":"media"},
-  {"id":66,"categoria":"Curiosidades","pergunta":"Qual é o nome do sorteio pré-jogo para definir quem sai com a bola ou escolhe campo?","opcoes":["Loteria","Moeda","Par ou ímpar","Cara ou coroa"],"resposta":"Cara ou coroa","dificuldade":"facil"},
-  {"id":67,"categoria":"Curiosidades","pergunta":"Qual é o material tradicional da bola de futebol moderna?","opcoes":["Couro natural","Borracha maciça","Materiais sintéticos","Lã"],"resposta":"Materiais sintéticos","dificuldade":"media"},
-  {"id":68,"categoria":"Curiosidades","pergunta":"Qual termo designa um gol marcado diretamente da cobrança de escanteio?","opcoes":["Bicicleta","Gol olímpico","Voleio","Meia-lua"],"resposta":"Gol olímpico","dificuldade":"media"},
-  {"id":69,"categoria":"Curiosidades","pergunta":"Qual peça do uniforme é obrigatória segundo as regras (além da camisa, calção e meias)?","opcoes":["Caneleiras","Luvas","Touca","Munhequeira"],"resposta":"Caneleiras","dificuldade":"facil"},
-  {"id":70,"categoria":"Curiosidades","pergunta":"Qual a expressão para o erro em que um zagueiro marca contra a própria equipe?","opcoes":["Gol irregular","Gol de mão","Gol contra","Gol impedido"],"resposta":"Gol contra","dificuldade":"facil"},
-
-  {"id":71,"categoria":"Brasil","pergunta":"Qual estádio brasileiro ficou famoso pelo 'Maracanazo'?","opcoes":["Mineirão","Maracanã","Beira-Rio","Morumbi"],"resposta":"Maracanã","dificuldade":"facil"},
-  {"id":72,"categoria":"Brasil","pergunta":"Quem foi o técnico do Brasil no penta de 2002?","opcoes":["Felipão (Luiz Felipe Scolari)","Parreira","Zagallo","Tite"],"resposta":"Felipão (Luiz Felipe Scolari)","dificuldade":"facil"},
-  {"id":73,"categoria":"Brasil","pergunta":"Qual jogador fez os dois gols na final da Copa de 2002 contra a Alemanha?","opcoes":["Rivaldo","Ronaldinho Gaúcho","Ronaldo","Kléberson"],"resposta":"Ronaldo","dificuldade":"media"},
-  {"id":74,"categoria":"Brasil","pergunta":"Qual clube brasileiro é chamado de 'Mengão'?","opcoes":["Fluminense","Vasco","Botafogo","Flamengo"],"resposta":"Flamengo","dificuldade":"facil"},
-  {"id":75,"categoria":"Brasil","pergunta":"Qual clássico é conhecido como 'Grenal'?","opcoes":["Grêmio x Inter","Atlético-MG x Cruzeiro","Bahia x Vitória","Corinthians x Palmeiras"],"resposta":"Grêmio x Inter","dificuldade":"facil"},
-  {"id":76,"categoria":"Brasil","pergunta":"Qual clube paulista é conhecido como 'Peixe'?","opcoes":["Corinthians","São Paulo","Santos","Palmeiras"],"resposta":"Santos","dificuldade":"facil"},
-  {"id":77,"categoria":"Brasil","pergunta":"Qual clube tem o apelido 'Porco'?","opcoes":["São Paulo","Palmeiras","Corinthians","Santos"],"resposta":"Palmeiras","dificuldade":"facil"},
-  {"id":78,"categoria":"Brasil","pergunta":"Qual time é conhecido como 'Galo'?","opcoes":["Cruzeiro","América-MG","Atlético-MG","Athletico-PR"],"resposta":"Atlético-MG","dificuldade":"facil"},
-  {"id":79,"categoria":"Brasil","pergunta":"Qual é o torneio nacional brasileiro disputado em formato mata-mata?","opcoes":["Brasileirão","Copa do Brasil","Supercopa","Copa Verde"],"resposta":"Copa do Brasil","dificuldade":"media"},
-  {"id":80,"categoria":"Brasil","pergunta":"Qual clube revelou Pelé ao mundo do futebol?","opcoes":["Santos","Corinthians","São Paulo","Flamengo"],"resposta":"Santos","dificuldade":"facil"},
-
-  {"id":81,"categoria":"Europa","pergunta":"Qual estádio é a casa do Real Madrid?","opcoes":["Camp Nou","Santiago Bernabéu","Metropolitano","Mestalla"],"resposta":"Santiago Bernabéu","dificuldade":"facil"},
-  {"id":82,"categoria":"Europa","pergunta":"Qual cidade sedia o clube AC Milan?","opcoes":["Roma","Turim","Milão","Nápoles"],"resposta":"Milão","dificuldade":"facil"},
-  {"id":83,"categoria":"Europa","pergunta":"Qual clube inglês é conhecido como 'Gunners'?","opcoes":["Chelsea","Arsenal","Tottenham","West Ham"],"resposta":"Arsenal","dificuldade":"facil"},
-  {"id":84,"categoria":"Europa","pergunta":"Qual clube espanhol tem o apelido 'Colchoneros'?","opcoes":["Valencia","Sevilla","Athletic Bilbao","Atlético de Madrid"],"resposta":"Atlético de Madrid","dificuldade":"media"},
-  {"id":85,"categoria":"Europa","pergunta":"Qual clube italiano é associado às cores preto e azul e ao apelido 'Nerazzurri'?","opcoes":["Juventus","Milan","Inter de Milão","Lazio"],"resposta":"Inter de Milão","dificuldade":"media"},
-  {"id":86,"categoria":"Europa","pergunta":"Qual clube francês tem o Stade Vélodrome como casa?","opcoes":["PSG","Lyon","Monaco","Marseille"],"resposta":"Marseille","dificuldade":"media"},
-  {"id":87,"categoria":"Europa","pergunta":"Qual clube alemão manda seus jogos na Allianz Arena?","opcoes":["Borussia Dortmund","Bayern de Munique","Schalke 04","RB Leipzig"],"resposta":"Bayern de Munique","dificuldade":"facil"},
-  {"id":88,"categoria":"Europa","pergunta":"Qual clube escocês forma o 'Old Firm' junto ao Rangers?","opcoes":["Hearts","Hibernian","Celtic","Aberdeen"],"resposta":"Celtic","dificuldade":"media"},
-  {"id":89,"categoria":"Europa","pergunta":"Qual clube holandês é conhecido por sua base em Amsterdã e estilo de formação de jovens?","opcoes":["PSV","Feyenoord","Ajax","AZ Alkmaar"],"resposta":"Ajax","dificuldade":"facil"},
-  {"id":90,"categoria":"Europa","pergunta":"Qual clube português manda jogos no Estádio da Luz?","opcoes":["Porto","Sporting CP","Benfica","Braga"],"resposta":"Benfica","dificuldade":"facil"},
-
-  {"id":91,"categoria":"Táticas","pergunta":"Qual número é tradicionalmente associado ao centroavante clássico?","opcoes":["7","8","9","11"],"resposta":"9","dificuldade":"facil"},
-  {"id":92,"categoria":"Táticas","pergunta":"Qual formação ficou muito popular por equilibrar defesa e ataque com dois volantes e um meia?","opcoes":["4-2-3-1","3-5-2","4-4-2 em losango","WM"],"resposta":"4-2-3-1","dificuldade":"media"},
-  {"id":93,"categoria":"Táticas","pergunta":"Qual termo descreve a pressão coordenada no campo adversário para recuperar a bola rapidamente?","opcoes":["Linha baixa","Catenaccio","Gegenpressing","Kick and rush"],"resposta":"Gegenpressing","dificuldade":"media"},
-  {"id":94,"categoria":"Táticas","pergunta":"Qual é o nome do lateral que atua por dentro auxiliando a construção no meio?","opcoes":["Ala profundo","Lateral construtor (inverted full-back)","Lateral cruzador","Lateral marcador"],"resposta":"Lateral construtor (inverted full-back)","dificuldade":"dificil"},
-  {"id":95,"categoria":"Táticas","pergunta":"Qual termo define o meia criativo que atua entre linhas e recebe passes no espaço central?","opcoes":["Regista","Segundo atacante","Falso 9","Meia-armador (trequartista)"],"resposta":"Meia-armador (trequartista)","dificuldade":"media"},
-
-  {"id":96,"categoria":"Arbitragem","pergunta":"Qual tecnologia auxilia decisões de gol ao verificar se a bola cruzou totalmente a linha?","opcoes":["VAR","GLT (Goal-Line Technology)","Hawk-Eye de laterais","Chip no calção"],"resposta":"GLT (Goal-Line Technology)","dificuldade":"media"},
-  {"id":97,"categoria":"Arbitragem","pergunta":"O que significa a sigla VAR?","opcoes":["Video Assistant Referee","Virtual Assistant Referee","Video Arbitration Review","Visual Assistant Referee"],"resposta":"Video Assistant Referee","dificuldade":"facil"},
-  {"id":98,"categoria":"Arbitragem","pergunta":"Em qual reinício o gol direto NÃO é válido contra o próprio time?","opcoes":["Tiro de meta","Tiro livre indireto","Lateral","Escanteio"],"resposta":"Tiro livre indireto","dificuldade":"dificil"},
-  {"id":99,"categoria":"Regras","pergunta":"Em um lateral, o cobrador deve lançar a bola usando:","opcoes":["Uma mão acima da cabeça","As duas mãos por trás e sobre a cabeça","O pé como no tiro de meta","Qualquer forma desde que em pé"],"resposta":"As duas mãos por trás e sobre a cabeça","dificuldade":"facil"},
-  {"id":100,"categoria":"Regras","pergunta":"Qual é a decisão correta se a bola tocar no árbitro e criar uma mudança significativa de posse levando a ataque promissor?","opcoes":["Segue o jogo","Tiro livre indireto para o time prejudicado","Bola ao chão","Repetição da jogada"],"resposta":"Bola ao chão","dificuldade":"dificil"}
+  {
+    "id": 1,
+    "categoria": "Regras",
+    "pergunta": "Em futebol de campo, quantos jogadores cada time tem em campo no início (sem contar substitutos)?",
+    "opcoes": [
+      "14",
+      "11",
+      "7",
+      "10"
+    ],
+    "resposta": "11",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 2,
+    "categoria": "Regras",
+    "pergunta": "Quando o impedimento é marcado, qual é a forma correta de reinício do jogo?",
+    "opcoes": [
+      "Tiro livre indireto",
+      "Bola ao chão",
+      "Tiro livre direto",
+      "Tiro de meta"
+    ],
+    "resposta": "Tiro livre indireto",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 3,
+    "categoria": "Regras",
+    "pergunta": "Qual infração resulta, em regra, em tiro livre direto?",
+    "opcoes": [
+      "Dar um pontapé (chutar um adversário)",
+      "Falta do goleiro por segurar a bola por muito tempo",
+      "Impedimento",
+      "Bola sair pela linha de fundo"
+    ],
+    "resposta": "Dar um pontapé (chutar um adversário)",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 4,
+    "categoria": "Regras",
+    "pergunta": "Qual é a cor tradicional do cartão aplicado para expulsão?",
+    "opcoes": [
+      "Azul",
+      "Branco",
+      "Vermelho",
+      "Verde"
+    ],
+    "resposta": "Vermelho",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 5,
+    "categoria": "Regras",
+    "pergunta": "Qual é a cor tradicional do cartão aplicado para advertência (cautela)?",
+    "opcoes": [
+      "Amarelo",
+      "Vermelho",
+      "Branco",
+      "Azul"
+    ],
+    "resposta": "Amarelo",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 6,
+    "categoria": "Regras",
+    "pergunta": "Quantos pontos um time recebe por vitória em ligas de pontos corridos, na regra padrão moderna?",
+    "opcoes": [
+      "1",
+      "3",
+      "5",
+      "2"
+    ],
+    "resposta": "3",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 7,
+    "categoria": "Regras",
+    "pergunta": "Qual é a duração padrão de uma partida profissional (sem prorrogação), em minutos?",
+    "opcoes": [
+      "90",
+      "70",
+      "100",
+      "80"
+    ],
+    "resposta": "90",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 8,
+    "categoria": "Regras",
+    "pergunta": "Como se chama o reinício quando a bola sai pela linha lateral?",
+    "opcoes": [
+      "Tiro de meta",
+      "Escanteio",
+      "Lateral",
+      "Tiro livre"
+    ],
+    "resposta": "Lateral",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 9,
+    "categoria": "Regras",
+    "pergunta": "Como se chama o reinício quando a bola sai pela linha de fundo após toque do atacante?",
+    "opcoes": [
+      "Bola ao chão",
+      "Tiro de meta",
+      "Escanteio",
+      "Lateral"
+    ],
+    "resposta": "Tiro de meta",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 10,
+    "categoria": "Regras",
+    "pergunta": "Como se chama o reinício quando a bola sai pela linha de fundo após toque do defensor?",
+    "opcoes": [
+      "Escanteio",
+      "Tiro livre indireto",
+      "Tiro de meta",
+      "Bola ao chão"
+    ],
+    "resposta": "Escanteio",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 11,
+    "categoria": "Regras",
+    "pergunta": "Em uma disputa de pênaltis, quantas cobranças cada equipe faz inicialmente (antes das alternadas em caso de empate)?",
+    "opcoes": [
+      "7",
+      "4",
+      "5",
+      "6"
+    ],
+    "resposta": "5",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 12,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1930?",
+    "opcoes": [
+      "Holanda",
+      "Uruguai",
+      "México",
+      "Inglaterra"
+    ],
+    "resposta": "Uruguai",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 13,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1934?",
+    "opcoes": [
+      "Chile",
+      "Portugal",
+      "Inglaterra",
+      "Itália"
+    ],
+    "resposta": "Itália",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 14,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1938?",
+    "opcoes": [
+      "Itália",
+      "França",
+      "Argentina",
+      "Croácia"
+    ],
+    "resposta": "Itália",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 15,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1950?",
+    "opcoes": [
+      "Uruguai",
+      "Alemanha",
+      "Holanda",
+      "Itália"
+    ],
+    "resposta": "Uruguai",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 16,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1954?",
+    "opcoes": [
+      "Suécia",
+      "Alemanha",
+      "Estados Unidos",
+      "Itália"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 17,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1958?",
+    "opcoes": [
+      "Suécia",
+      "Holanda",
+      "Japão",
+      "Brasil"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 18,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1962?",
+    "opcoes": [
+      "Suíça",
+      "Alemanha",
+      "Brasil",
+      "Espanha"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 19,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1966?",
+    "opcoes": [
+      "Inglaterra",
+      "Bélgica",
+      "Japão",
+      "Espanha"
+    ],
+    "resposta": "Inglaterra",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 20,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1970?",
+    "opcoes": [
+      "Holanda",
+      "Brasil",
+      "Suíça",
+      "Suécia"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 21,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1974?",
+    "opcoes": [
+      "Alemanha",
+      "Holanda",
+      "Croácia",
+      "Argentina"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 22,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1978?",
+    "opcoes": [
+      "Brasil",
+      "Suécia",
+      "Argentina",
+      "México"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 23,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1982?",
+    "opcoes": [
+      "França",
+      "Chile",
+      "Itália",
+      "Japão"
+    ],
+    "resposta": "Itália",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 24,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1986?",
+    "opcoes": [
+      "Argentina",
+      "Espanha",
+      "Estados Unidos",
+      "México"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 25,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1990?",
+    "opcoes": [
+      "Alemanha",
+      "Brasil",
+      "Suíça",
+      "Croácia"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 26,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1994?",
+    "opcoes": [
+      "França",
+      "Alemanha",
+      "Brasil",
+      "Portugal"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 27,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 1998?",
+    "opcoes": [
+      "Espanha",
+      "Alemanha",
+      "Chile",
+      "França"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 28,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2002?",
+    "opcoes": [
+      "Holanda",
+      "Brasil",
+      "França",
+      "Japão"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 29,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2006?",
+    "opcoes": [
+      "México",
+      "Portugal",
+      "Estados Unidos",
+      "Itália"
+    ],
+    "resposta": "Itália",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 30,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2010?",
+    "opcoes": [
+      "Alemanha",
+      "Espanha",
+      "Inglaterra",
+      "Portugal"
+    ],
+    "resposta": "Espanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 31,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2014?",
+    "opcoes": [
+      "Brasil",
+      "Argentina",
+      "Alemanha",
+      "Portugal"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 32,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2018?",
+    "opcoes": [
+      "Argentina",
+      "Chile",
+      "França",
+      "Croácia"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 33,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem foi o campeão da Copa do Mundo masculina de 2022?",
+    "opcoes": [
+      "México",
+      "Espanha",
+      "Uruguai",
+      "Argentina"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 34,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual seleção é a maior campeã da Copa do Mundo masculina, com 5 títulos?",
+    "opcoes": [
+      "Brasil",
+      "Uruguai",
+      "Alemanha",
+      "Japão"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 35,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quem é o maior artilheiro da história das Copas do Mundo masculinas (16 gols)?",
+    "opcoes": [
+      "Pelé",
+      "Just Fontaine",
+      "Gerd Müller",
+      "Miroslav Klose"
+    ],
+    "resposta": "Miroslav Klose",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 36,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2023/24?",
+    "opcoes": [
+      "Real Madrid",
+      "Bayern de Munique",
+      "Borussia Dortmund",
+      "Ajax"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 37,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2022/23?",
+    "opcoes": [
+      "Barcelona",
+      "Manchester City",
+      "Ajax",
+      "Liverpool"
+    ],
+    "resposta": "Manchester City",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 38,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2021/22?",
+    "opcoes": [
+      "Real Madrid",
+      "Liverpool",
+      "Manchester City",
+      "Borussia Dortmund"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 39,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2020/21?",
+    "opcoes": [
+      "Paris Saint-Germain",
+      "Internazionale",
+      "Chelsea",
+      "Barcelona"
+    ],
+    "resposta": "Chelsea",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 40,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2019/20?",
+    "opcoes": [
+      "Barcelona",
+      "Liverpool",
+      "AC Milan",
+      "Bayern de Munique"
+    ],
+    "resposta": "Bayern de Munique",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 41,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2018/19?",
+    "opcoes": [
+      "Real Madrid",
+      "AC Milan",
+      "Liverpool",
+      "Manchester City"
+    ],
+    "resposta": "Liverpool",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 42,
+    "categoria": "Champions League",
+    "pergunta": "Qual clube é o maior campeão da UEFA Champions League/European Cup?",
+    "opcoes": [
+      "Manchester City",
+      "Real Madrid",
+      "Manchester United",
+      "Paris Saint-Germain"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 43,
+    "categoria": "Champions League",
+    "pergunta": "Quem é o maior artilheiro da história da UEFA Champions League (141 gols)?",
+    "opcoes": [
+      "Cristiano Ronaldo",
+      "Raúl González",
+      "Robert Lewandowski",
+      "Lionel Messi"
+    ],
+    "resposta": "Cristiano Ronaldo",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 44,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2025?",
+    "opcoes": [
+      "Flamengo",
+      "Fluminense",
+      "São Paulo",
+      "Once Caldas"
+    ],
+    "resposta": "Flamengo",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 45,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2024?",
+    "opcoes": [
+      "Grêmio",
+      "Palmeiras",
+      "Botafogo",
+      "Independiente"
+    ],
+    "resposta": "Botafogo",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 46,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2023?",
+    "opcoes": [
+      "LDU",
+      "San Lorenzo",
+      "Fluminense",
+      "São Paulo"
+    ],
+    "resposta": "Fluminense",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 47,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2022?",
+    "opcoes": [
+      "Atlético-MG",
+      "Flamengo",
+      "San Lorenzo",
+      "Atlético Nacional"
+    ],
+    "resposta": "Flamengo",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 48,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2021?",
+    "opcoes": [
+      "Palmeiras",
+      "River Plate",
+      "LDU",
+      "Atlético Nacional"
+    ],
+    "resposta": "Palmeiras",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 49,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2020?",
+    "opcoes": [
+      "LDU",
+      "Fluminense",
+      "Palmeiras",
+      "Colo-Colo"
+    ],
+    "resposta": "Palmeiras",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 50,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2019?",
+    "opcoes": [
+      "Grêmio",
+      "Flamengo",
+      "LDU",
+      "Estudiantes"
+    ],
+    "resposta": "Flamengo",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 51,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2018?",
+    "opcoes": [
+      "Flamengo",
+      "Peñarol",
+      "River Plate",
+      "São Paulo"
+    ],
+    "resposta": "River Plate",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 52,
+    "categoria": "Libertadores",
+    "pergunta": "Quem foi o campeão da Copa Libertadores da América em 2017?",
+    "opcoes": [
+      "Vasco",
+      "Grêmio",
+      "Independiente",
+      "Corinthians"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 53,
+    "categoria": "Libertadores",
+    "pergunta": "Qual clube é recordista de títulos da Copa Libertadores, com 7 conquistas?",
+    "opcoes": [
+      "Flamengo",
+      "Colo-Colo",
+      "Atlético Nacional",
+      "Independiente"
+    ],
+    "resposta": "Independiente",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 54,
+    "categoria": "Competições",
+    "pergunta": "Qual torneio nacional brasileiro tem formato de pontos corridos desde 2003?",
+    "opcoes": [
+      "Copa do Brasil",
+      "Campeonato Brasileiro Série A",
+      "Supercopa do Brasil",
+      "Copa Verde"
+    ],
+    "resposta": "Campeonato Brasileiro Série A",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 55,
+    "categoria": "Brasileirão",
+    "pergunta": "Qual clube fez 100 pontos na edição de 2003 do Brasileirão (pontos corridos com 46 jogos)?",
+    "opcoes": [
+      "Cruzeiro",
+      "Fluminense",
+      "Vasco",
+      "Botafogo"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 56,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Qual clube é o maior campeão da Copa do Brasil (6 títulos)?",
+    "opcoes": [
+      "Palmeiras",
+      "Cruzeiro",
+      "Fluminense",
+      "São Paulo"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 57,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Em que ano a Copa do Brasil teve sua edição inaugural (primeira edição)?",
+    "opcoes": [
+      "1994",
+      "1989",
+      "2003",
+      "2010"
+    ],
+    "resposta": "1989",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 58,
+    "categoria": "Prêmios",
+    "pergunta": "Quem venceu a Bola de Ouro (Ballon d'Or) em 2024?",
+    "opcoes": [
+      "Ousmane Dembélé",
+      "Karim Benzema",
+      "Kylian Mbappé",
+      "Rodri"
+    ],
+    "resposta": "Rodri",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 59,
+    "categoria": "Prêmios",
+    "pergunta": "Quem venceu a Bola de Ouro (Ballon d'Or) em 2025?",
+    "opcoes": [
+      "Erling Haaland",
+      "Ousmane Dembélé",
+      "Lionel Messi",
+      "Cristiano Ronaldo"
+    ],
+    "resposta": "Ousmane Dembélé",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 60,
+    "categoria": "Prêmios",
+    "pergunta": "Quem foi eleito The Best FIFA Men's Player em 2025?",
+    "opcoes": [
+      "Kylian Mbappé",
+      "Ousmane Dembélé",
+      "Lionel Messi",
+      "Aitana Bonmatí"
+    ],
+    "resposta": "Ousmane Dembélé",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 61,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube inglês é conhecido pelo apelido 'The Reds'?",
+    "opcoes": [
+      "Manchester City",
+      "Chelsea",
+      "Liverpool",
+      "Tottenham"
+    ],
+    "resposta": "Liverpool",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 62,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é conhecida pelo apelido 'La Roja'?",
+    "opcoes": [
+      "Bélgica",
+      "Argentina",
+      "Espanha",
+      "México"
+    ],
+    "resposta": "Espanha",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 63,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é conhecida pelo apelido 'Azzurra'?",
+    "opcoes": [
+      "Inglaterra",
+      "Itália",
+      "Bélgica",
+      "Argentina"
+    ],
+    "resposta": "Itália",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 64,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é conhecida pelo apelido 'Canarinho'?",
+    "opcoes": [
+      "França",
+      "Portugal",
+      "Inglaterra",
+      "Brasil"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 65,
+    "categoria": "Regras",
+    "pergunta": "Qual parte do corpo não pode tocar a bola para caracterizar um 'toque de mão' (handball), segundo as regras?",
+    "opcoes": [
+      "CAF",
+      "CONCACAF",
+      "FIFA",
+      "Mão/braço (geralmente)"
+    ],
+    "resposta": "Mão/braço (geralmente)",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 66,
+    "categoria": "Regras",
+    "pergunta": "Em geral, quantas 'oportunidades' (paradas) um time tem para fazer até 5 substituições durante o jogo, para evitar muitas interrupções?",
+    "opcoes": [
+      "6",
+      "20",
+      "3",
+      "5"
+    ],
+    "resposta": "3",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 67,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2014?",
+    "opcoes": [
+      "Japão",
+      "Brasil",
+      "Estados Unidos",
+      "França"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 68,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2022?",
+    "opcoes": [
+      "Japão",
+      "Catar",
+      "Inglaterra",
+      "Croácia"
+    ],
+    "resposta": "Catar",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 69,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Em 1950, qual país venceu a Copa do Mundo?",
+    "opcoes": [
+      "Uruguai",
+      "Brasil",
+      "Inglaterra",
+      "Suíça"
+    ],
+    "resposta": "Uruguai",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 70,
+    "categoria": "Champions League",
+    "pergunta": "Em qual ano a competição passou a se chamar oficialmente 'UEFA Champions League' (rebranding de 1992)?",
+    "opcoes": [
+      "20",
+      "4",
+      "10",
+      "1992"
+    ],
+    "resposta": "1992",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 71,
+    "categoria": "Libertadores",
+    "pergunta": "Qual confederação organiza a Copa Libertadores da América?",
+    "opcoes": [
+      "UEFA",
+      "CONMEBOL",
+      "CBF",
+      "CAF"
+    ],
+    "resposta": "CONMEBOL",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 72,
+    "categoria": "Competições",
+    "pergunta": "Qual competição brasileira é disputada em formato mata-mata e reúne clubes de várias divisões?",
+    "opcoes": [
+      "UEFA",
+      "AFC",
+      "CAF",
+      "Copa do Brasil"
+    ],
+    "resposta": "Copa do Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 73,
+    "categoria": "Brasileirão",
+    "pergunta": "Quantos clubes participam da Série A no formato atual de 20 clubes?",
+    "opcoes": [
+      "6",
+      "5",
+      "2",
+      "20"
+    ],
+    "resposta": "20",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 74,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Quais seleções têm 4 títulos de Copa do Mundo masculina (cada)?",
+    "opcoes": [
+      "Brasil e Argentina",
+      "Alemanha e Itália",
+      "Espanha e Uruguai",
+      "França e Inglaterra"
+    ],
+    "resposta": "Alemanha e Itália",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 75,
+    "categoria": "Champions League",
+    "pergunta": "Quantos títulos da UEFA Champions League/European Cup o Real Madrid tinha após vencer a final de 2023/24 (recorde)?",
+    "opcoes": [
+      "16",
+      "14",
+      "15",
+      "13"
+    ],
+    "resposta": "15",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 76,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Maracanã?",
+    "opcoes": [
+      "Rio de Janeiro",
+      "São Paulo",
+      "Belo Horizonte",
+      "Porto Alegre"
+    ],
+    "resposta": "Rio de Janeiro",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 77,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Morumbi (Estádio do São Paulo FC)?",
+    "opcoes": [
+      "São Paulo",
+      "Curitiba",
+      "Brasília",
+      "Salvador"
+    ],
+    "resposta": "São Paulo",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 78,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Mineirão?",
+    "opcoes": [
+      "Belo Horizonte",
+      "Recife",
+      "Fortaleza",
+      "Goiânia"
+    ],
+    "resposta": "Belo Horizonte",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 79,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica a Arena da Baixada (Ligga Arena)?",
+    "opcoes": [
+      "Curitiba",
+      "Florianópolis",
+      "Santos",
+      "Belém"
+    ],
+    "resposta": "Curitiba",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 80,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Lionel Messi?",
+    "opcoes": [
+      "França",
+      "Bélgica",
+      "Argentina",
+      "Holanda"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 81,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Cristiano Ronaldo?",
+    "opcoes": [
+      "Estados Unidos",
+      "Croácia",
+      "Portugal",
+      "México"
+    ],
+    "resposta": "Portugal",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 82,
+    "categoria": "Jogadores",
+    "pergunta": "De que país era Pelé?",
+    "opcoes": [
+      "Japão",
+      "Uruguai",
+      "Croácia",
+      "Brasil"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 83,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Kylian Mbappé?",
+    "opcoes": [
+      "França",
+      "Holanda",
+      "Estados Unidos",
+      "Bélgica"
+    ],
+    "resposta": "França",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 84,
+    "categoria": "Regras",
+    "pergunta": "Quantas 'metades' (tempos) tem uma partida padrão de futebol?",
+    "opcoes": [
+      "3",
+      "4",
+      "5",
+      "2"
+    ],
+    "resposta": "2",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 85,
+    "categoria": "Regras",
+    "pergunta": "Qual é o reinício do jogo após um gol?",
+    "opcoes": [
+      "Saída de bola",
+      "Tiro de meta",
+      "Lateral",
+      "Bola ao chão"
+    ],
+    "resposta": "Saída de bola",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 86,
+    "categoria": "Regras",
+    "pergunta": "Qual é o nome do jogador cuja função principal é defender o gol?",
+    "opcoes": [
+      "Meia",
+      "Lateral",
+      "Goleiro",
+      "Atacante"
+    ],
+    "resposta": "Goleiro",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 87,
+    "categoria": "Regras",
+    "pergunta": "Quantos árbitros assistentes (bandeirinhas) atuam normalmente em jogos profissionais (sem considerar quarto árbitro)?",
+    "opcoes": [
+      "1",
+      "4",
+      "2",
+      "3"
+    ],
+    "resposta": "2",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 88,
+    "categoria": "Regras",
+    "pergunta": "Como se chama a penalidade máxima cobrada da marca do pênalti?",
+    "opcoes": [
+      "Tiro livre indireto",
+      "Escanteio",
+      "Lateral",
+      "Pênalti"
+    ],
+    "resposta": "Pênalti",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 89,
+    "categoria": "Regras",
+    "pergunta": "Qual é o reinício após uma falta dentro da área do time defensor cometida pelo defensor contra um adversário?",
+    "opcoes": [
+      "Escanteio",
+      "Tiro livre indireto",
+      "Tiro de meta",
+      "Pênalti"
+    ],
+    "resposta": "Pênalti",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 90,
+    "categoria": "Organização",
+    "pergunta": "Qual entidade organiza a Copa do Mundo masculina?",
+    "opcoes": [
+      "CONMEBOL",
+      "FIFA",
+      "UEFA",
+      "AFC"
+    ],
+    "resposta": "FIFA",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 91,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação continental organiza a UEFA Champions League?",
+    "opcoes": [
+      "CONCACAF",
+      "UEFA",
+      "AFC",
+      "FIFA"
+    ],
+    "resposta": "UEFA",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 92,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação continental organiza a Copa Libertadores?",
+    "opcoes": [
+      "CONCACAF",
+      "CAF",
+      "AFC",
+      "CONMEBOL"
+    ],
+    "resposta": "CONMEBOL",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 93,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2014?",
+    "opcoes": [
+      "Itália",
+      "França",
+      "Estados Unidos",
+      "Brasil"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 94,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2018?",
+    "opcoes": [
+      "África do Sul",
+      "Catar",
+      "Coreia do Sul",
+      "Rússia"
+    ],
+    "resposta": "Rússia",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 95,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2022?",
+    "opcoes": [
+      "Catar",
+      "Estados Unidos",
+      "África do Sul",
+      "Brasil"
+    ],
+    "resposta": "Catar",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 96,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2010?",
+    "opcoes": [
+      "Itália",
+      "Catar",
+      "África do Sul",
+      "Japão"
+    ],
+    "resposta": "África do Sul",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 97,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 2006?",
+    "opcoes": [
+      "Alemanha",
+      "Catar",
+      "Japão",
+      "Coreia do Sul"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 98,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país sediou a Copa do Mundo masculina de 1998?",
+    "opcoes": [
+      "Alemanha",
+      "Coreia do Sul",
+      "França",
+      "Catar"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 99,
+    "categoria": "Champions League",
+    "pergunta": "Qual clube venceu 5 títulos consecutivos (1956 a 1960) na era da European Cup?",
+    "opcoes": [
+      "AC Milan",
+      "Manchester City",
+      "Barcelona",
+      "Real Madrid"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 100,
+    "categoria": "Libertadores",
+    "pergunta": "Qual clube foi o primeiro campeão da Copa Libertadores (1960)?",
+    "opcoes": [
+      "Peñarol",
+      "Corinthians",
+      "Palmeiras",
+      "Cruzeiro"
+    ],
+    "resposta": "Peñarol",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 101,
+    "categoria": "Brasileirão",
+    "pergunta": "No formato de 20 clubes, quantas rodadas cada time disputa na Série A (turno e returno)?",
+    "opcoes": [
+      "30",
+      "34",
+      "40",
+      "38"
+    ],
+    "resposta": "38",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 102,
+    "categoria": "Brasileirão",
+    "pergunta": "No formato de 20 clubes, quantos jogos existem em uma edição completa do Brasileirão Série A?",
+    "opcoes": [
+      "418",
+      "342",
+      "360",
+      "380"
+    ],
+    "resposta": "380",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 103,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube brasileiro é conhecido como 'Galo'?",
+    "opcoes": [
+      "Atlético-MG",
+      "Athletico-PR",
+      "Cruzeiro",
+      "São Paulo"
+    ],
+    "resposta": "Atlético-MG",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 104,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube brasileiro é conhecido como 'Peixe'?",
+    "opcoes": [
+      "Fluminense",
+      "Botafogo",
+      "Santos",
+      "Cruzeiro"
+    ],
+    "resposta": "Santos",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 105,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube brasileiro é conhecido como 'Imortal Tricolor'?",
+    "opcoes": [
+      "Grêmio",
+      "Athletico-PR",
+      "Atlético-MG",
+      "São Paulo"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 106,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube brasileiro é conhecido como 'Furacão'?",
+    "opcoes": [
+      "Grêmio",
+      "Athletico-PR",
+      "Santos",
+      "Cruzeiro"
+    ],
+    "resposta": "Athletico-PR",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 107,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube brasileiro é conhecido como 'Verdão' (apelido comum, especialmente em SP)?",
+    "opcoes": [
+      "Athletico-PR",
+      "Palmeiras",
+      "Cruzeiro",
+      "Grêmio"
+    ],
+    "resposta": "Palmeiras",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 108,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1989?",
+    "opcoes": [
+      "Vasco",
+      "Grêmio",
+      "Athletico-PR",
+      "Flamengo"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 109,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1990?",
+    "opcoes": [
+      "Fluminense",
+      "Palmeiras",
+      "Flamengo",
+      "Criciúma"
+    ],
+    "resposta": "Flamengo",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 110,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1991?",
+    "opcoes": [
+      "Criciúma",
+      "Vasco",
+      "Juventude",
+      "Flamengo"
+    ],
+    "resposta": "Criciúma",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 111,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1992?",
+    "opcoes": [
+      "Atlético-MG",
+      "Palmeiras",
+      "Internacional",
+      "Fluminense"
+    ],
+    "resposta": "Internacional",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 112,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1993?",
+    "opcoes": [
+      "São Paulo",
+      "Grêmio",
+      "Cruzeiro",
+      "Criciúma"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 113,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1994?",
+    "opcoes": [
+      "Palmeiras",
+      "Botafogo",
+      "Grêmio",
+      "Flamengo"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 114,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1995?",
+    "opcoes": [
+      "Athletico-PR",
+      "Corinthians",
+      "Santos",
+      "Cruzeiro"
+    ],
+    "resposta": "Corinthians",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 115,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1996?",
+    "opcoes": [
+      "Athletico-PR",
+      "Palmeiras",
+      "Cruzeiro",
+      "Criciúma"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 116,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1997?",
+    "opcoes": [
+      "Grêmio",
+      "Santo André",
+      "Botafogo",
+      "Criciúma"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 117,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1998?",
+    "opcoes": [
+      "Palmeiras",
+      "Internacional",
+      "Fluminense",
+      "São Paulo"
+    ],
+    "resposta": "Palmeiras",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 118,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 1999?",
+    "opcoes": [
+      "Criciúma",
+      "Palmeiras",
+      "Cruzeiro",
+      "Juventude"
+    ],
+    "resposta": "Juventude",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 119,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 2000?",
+    "opcoes": [
+      "Athletico-PR",
+      "Cruzeiro",
+      "Internacional",
+      "São Paulo"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 120,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 2001?",
+    "opcoes": [
+      "Botafogo",
+      "Vasco",
+      "Criciúma",
+      "Grêmio"
+    ],
+    "resposta": "Grêmio",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 121,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 2002?",
+    "opcoes": [
+      "Corinthians",
+      "Juventude",
+      "Athletico-PR",
+      "Botafogo"
+    ],
+    "resposta": "Corinthians",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 122,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 2003?",
+    "opcoes": [
+      "Corinthians",
+      "Palmeiras",
+      "Juventude",
+      "Cruzeiro"
+    ],
+    "resposta": "Cruzeiro",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 123,
+    "categoria": "Copa do Brasil",
+    "pergunta": "Quem foi o campeão da Copa do Brasil em 2004?",
+    "opcoes": [
+      "Botafogo",
+      "Vasco",
+      "Juventude",
+      "Santo André"
+    ],
+    "resposta": "Santo André",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 124,
+    "categoria": "Prêmios",
+    "pergunta": "Quem venceu a Bola de Ouro (Ballon d'Or) em 2022?",
+    "opcoes": [
+      "Lionel Messi",
+      "Cristiano Ronaldo",
+      "Rodri",
+      "Karim Benzema"
+    ],
+    "resposta": "Karim Benzema",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 125,
+    "categoria": "Prêmios",
+    "pergunta": "Quem venceu a Bola de Ouro (Ballon d'Or) em 2023?",
+    "opcoes": [
+      "Rodri",
+      "Ousmane Dembélé",
+      "Lionel Messi",
+      "Erling Haaland"
+    ],
+    "resposta": "Lionel Messi",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 126,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Neymar?",
+    "opcoes": [
+      "Chile",
+      "Brasil",
+      "Itália",
+      "Uruguai"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 127,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Luka Modrić?",
+    "opcoes": [
+      "Suíça",
+      "Polônia",
+      "Uruguai",
+      "Croácia"
+    ],
+    "resposta": "Croácia",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 128,
+    "categoria": "Jogadores",
+    "pergunta": "De que país era Diego Maradona?",
+    "opcoes": [
+      "Argentina",
+      "Brasil",
+      "Suécia",
+      "Itália"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 129,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Robert Lewandowski?",
+    "opcoes": [
+      "Uruguai",
+      "Holanda",
+      "Croácia",
+      "Polônia"
+    ],
+    "resposta": "Polônia",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 130,
+    "categoria": "Jogadores",
+    "pergunta": "De que país é Erling Haaland?",
+    "opcoes": [
+      "Estados Unidos",
+      "Chile",
+      "Noruega",
+      "Bélgica"
+    ],
+    "resposta": "Noruega",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 131,
+    "categoria": "Champions League",
+    "pergunta": "Qual clube é o segundo maior campeão da UEFA Champions League/European Cup, com 7 títulos?",
+    "opcoes": [
+      "AC Milan",
+      "Ajax",
+      "Manchester United",
+      "Borussia Dortmund"
+    ],
+    "resposta": "AC Milan",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 132,
+    "categoria": "Prêmios",
+    "pergunta": "Quem venceu The Best FIFA Women's Player em 2025?",
+    "opcoes": [
+      "Megan Rapinoe",
+      "Aitana Bonmatí",
+      "Sam Kerr",
+      "Alexia Putellas"
+    ],
+    "resposta": "Aitana Bonmatí",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 133,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2017/18?",
+    "opcoes": [
+      "Juventus",
+      "Real Madrid",
+      "Manchester United",
+      "Internazionale"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 134,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2016/17?",
+    "opcoes": [
+      "Chelsea",
+      "Manchester United",
+      "Real Madrid",
+      "AC Milan"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 135,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2015/16?",
+    "opcoes": [
+      "Internazionale",
+      "Real Madrid",
+      "Borussia Dortmund",
+      "Liverpool"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 136,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2014/15?",
+    "opcoes": [
+      "Manchester United",
+      "Liverpool",
+      "Internazionale",
+      "Barcelona"
+    ],
+    "resposta": "Barcelona",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 137,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2013/14?",
+    "opcoes": [
+      "Juventus",
+      "Paris Saint-Germain",
+      "Manchester United",
+      "Real Madrid"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 138,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2012/13?",
+    "opcoes": [
+      "Real Madrid",
+      "Manchester United",
+      "Liverpool",
+      "Bayern de Munique"
+    ],
+    "resposta": "Bayern de Munique",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 139,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2011/12?",
+    "opcoes": [
+      "Paris Saint-Germain",
+      "Barcelona",
+      "Chelsea",
+      "Manchester City"
+    ],
+    "resposta": "Chelsea",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 140,
+    "categoria": "Champions League",
+    "pergunta": "Quem venceu a UEFA Champions League na temporada 2010/11?",
+    "opcoes": [
+      "Bayern de Munique",
+      "Barcelona",
+      "Juventus",
+      "Manchester United"
+    ],
+    "resposta": "Barcelona",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 141,
+    "categoria": "Regras",
+    "pergunta": "Estar em posição de impedimento, por si só, já é infração?",
+    "opcoes": [
+      "Só com VAR",
+      "Só em jogo mata-mata",
+      "Só no segundo tempo",
+      "Não"
+    ],
+    "resposta": "Não",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 142,
+    "categoria": "Regras",
+    "pergunta": "Para estar em posição de impedimento, o jogador precisa estar mais perto da linha de gol adversária do que quantos adversários (além da bola)?",
+    "opcoes": [
+      "Três",
+      "Dois (o penúltimo e o último)",
+      "Um",
+      "Quatro"
+    ],
+    "resposta": "Dois (o penúltimo e o último)",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 143,
+    "categoria": "Regras",
+    "pergunta": "Em competições que adotam a regra, qual é o número máximo de substituições permitido por equipe em uma partida?",
+    "opcoes": [
+      "6",
+      "4",
+      "5",
+      "3"
+    ],
+    "resposta": "5",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 144,
+    "categoria": "Brasileirão",
+    "pergunta": "Em qual ano a Série A passou a adotar pontos corridos (era moderna)?",
+    "opcoes": [
+      "1995",
+      "2000",
+      "2003",
+      "1998"
+    ],
+    "resposta": "2003",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 145,
+    "categoria": "Brasileirão",
+    "pergunta": "Em qual ano o Brasileirão Série A passou a ter 20 clubes e 38 rodadas no formato atual?",
+    "opcoes": [
+      "2004",
+      "2006",
+      "2007",
+      "2005"
+    ],
+    "resposta": "2006",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 146,
+    "categoria": "Libertadores",
+    "pergunta": "O campeão da Libertadores disputa tradicionalmente qual competição continental no ano seguinte?",
+    "opcoes": [
+      "Copa da Inglaterra",
+      "Recopa Sul-Americana",
+      "Copa América",
+      "Eurocopa"
+    ],
+    "resposta": "Recopa Sul-Americana",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 147,
+    "categoria": "Libertadores",
+    "pergunta": "O campeão da Libertadores se classifica para qual competição mundial organizada pela FIFA (modelo tradicional)?",
+    "opcoes": [
+      "Copa das Confederações",
+      "Copa do Mundo de Clubes da FIFA",
+      "Copa Intercontinental de Seleções",
+      "Eurocopa"
+    ],
+    "resposta": "Copa do Mundo de Clubes da FIFA",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 148,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual seleção venceu a Copa do Mundo de 1970?",
+    "opcoes": [
+      "Brasil",
+      "Japão",
+      "Espanha",
+      "Holanda"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 149,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual seleção venceu a Copa do Mundo de 1998?",
+    "opcoes": [
+      "França",
+      "Inglaterra",
+      "Bélgica",
+      "Suíça"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 150,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual seleção venceu a Copa do Mundo de 2010?",
+    "opcoes": [
+      "Suécia",
+      "México",
+      "Bélgica",
+      "Espanha"
+    ],
+    "resposta": "Espanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 151,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a América do Sul no futebol?",
+    "opcoes": [
+      "OFC",
+      "UEFA",
+      "CAF",
+      "CONMEBOL"
+    ],
+    "resposta": "CONMEBOL",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 152,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a Europa no futebol?",
+    "opcoes": [
+      "UEFA",
+      "CAF",
+      "CONCACAF",
+      "CONMEBOL"
+    ],
+    "resposta": "UEFA",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 153,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube espanhol é conhecido como 'Blancos' (ou 'Los Blancos')?",
+    "opcoes": [
+      "Juventus",
+      "Manchester United",
+      "Real Madrid",
+      "Ajax"
+    ],
+    "resposta": "Real Madrid",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 154,
+    "categoria": "Clubes",
+    "pergunta": "Qual clube catalão é conhecido como 'Blaugrana'?",
+    "opcoes": [
+      "Barcelona",
+      "Ajax",
+      "Internazionale",
+      "Paris Saint-Germain"
+    ],
+    "resposta": "Barcelona",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 155,
+    "categoria": "Eurocopa",
+    "pergunta": "Quem foi o campeão da UEFA EURO 2024?",
+    "opcoes": [
+      "Suíça",
+      "Espanha",
+      "Alemanha",
+      "Portugal"
+    ],
+    "resposta": "Espanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 156,
+    "categoria": "Eurocopa",
+    "pergunta": "Na final da UEFA EURO 2024, qual seleção foi vice-campeã?",
+    "opcoes": [
+      "Croácia",
+      "Japão",
+      "Inglaterra",
+      "Itália"
+    ],
+    "resposta": "Inglaterra",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 157,
+    "categoria": "Copa América",
+    "pergunta": "Quem foi o campeão da Copa América 2024?",
+    "opcoes": [
+      "Bélgica",
+      "Suíça",
+      "Croácia",
+      "Argentina"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 158,
+    "categoria": "Copa América",
+    "pergunta": "Em qual país a Copa América 2024 foi sediada?",
+    "opcoes": [
+      "Estados Unidos",
+      "México",
+      "Brasil",
+      "Argentina"
+    ],
+    "resposta": "Estados Unidos",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 159,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a Ásia no futebol?",
+    "opcoes": [
+      "CAF",
+      "CONMEBOL",
+      "UEFA",
+      "AFC"
+    ],
+    "resposta": "AFC",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 160,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a África no futebol?",
+    "opcoes": [
+      "OFC",
+      "UEFA",
+      "CONCACAF",
+      "CAF"
+    ],
+    "resposta": "CAF",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 161,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a América do Norte, Central e Caribe no futebol?",
+    "opcoes": [
+      "CONMEBOL",
+      "UEFA",
+      "CONCACAF",
+      "CAF"
+    ],
+    "resposta": "CONCACAF",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 162,
+    "categoria": "Organização",
+    "pergunta": "Qual confederação representa a Oceania no futebol?",
+    "opcoes": [
+      "OFC",
+      "CONMEBOL",
+      "UEFA",
+      "AFC"
+    ],
+    "resposta": "OFC",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 163,
+    "categoria": "Mundial de Clubes",
+    "pergunta": "Quantos clubes participam do formato expandido do Mundial de Clubes da FIFA em 2025?",
+    "opcoes": [
+      "40",
+      "24",
+      "36",
+      "32"
+    ],
+    "resposta": "32",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 164,
+    "categoria": "Mundial de Clubes",
+    "pergunta": "Em qual país ocorreu o Mundial de Clubes da FIFA 2025 (formato expandido)?",
+    "opcoes": [
+      "Japão",
+      "Brasil",
+      "Estados Unidos",
+      "Catar"
+    ],
+    "resposta": "Estados Unidos",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 165,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Wembley?",
+    "opcoes": [
+      "Londres",
+      "Manchester",
+      "Liverpool",
+      "Birmingham"
+    ],
+    "resposta": "Londres",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 166,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Camp Nou?",
+    "opcoes": [
+      "Barcelona",
+      "Madri",
+      "Valência",
+      "Sevilha"
+    ],
+    "resposta": "Barcelona",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 167,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Santiago Bernabéu?",
+    "opcoes": [
+      "Madri",
+      "Barcelona",
+      "Lisboa",
+      "Paris"
+    ],
+    "resposta": "Madri",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 168,
+    "categoria": "Estádios",
+    "pergunta": "Em qual cidade fica o estádio Allianz Arena?",
+    "opcoes": [
+      "Munique",
+      "Berlim",
+      "Hamburgo",
+      "Dortmund"
+    ],
+    "resposta": "Munique",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 169,
+    "categoria": "Competições",
+    "pergunta": "Qual competição de clubes é considerada a principal da Europa?",
+    "opcoes": [
+      "Copa América",
+      "Copa do Brasil",
+      "Copa Libertadores",
+      "UEFA Champions League"
+    ],
+    "resposta": "UEFA Champions League",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 170,
+    "categoria": "Competições",
+    "pergunta": "Qual competição de clubes é considerada a principal da América do Sul?",
+    "opcoes": [
+      "Copa Libertadores",
+      "Copa do Mundo",
+      "Eurocopa",
+      "UEFA Champions League"
+    ],
+    "resposta": "Copa Libertadores",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 171,
+    "categoria": "Competições",
+    "pergunta": "Qual competição de seleções é disputada entre países da Europa?",
+    "opcoes": [
+      "Copa América",
+      "Copa Libertadores",
+      "Eurocopa",
+      "Champions League"
+    ],
+    "resposta": "Eurocopa",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 172,
+    "categoria": "Competições",
+    "pergunta": "Qual competição de seleções é disputada entre países da América do Sul?",
+    "opcoes": [
+      "Copa do Brasil",
+      "Champions League",
+      "Eurocopa",
+      "Copa América"
+    ],
+    "resposta": "Copa América",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 173,
+    "categoria": "Clubes",
+    "pergunta": "De qual país é o Real Madrid?",
+    "opcoes": [
+      "Espanha",
+      "Itália",
+      "Inglaterra",
+      "Alemanha"
+    ],
+    "resposta": "Espanha",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 174,
+    "categoria": "Clubes",
+    "pergunta": "De qual país é o Bayern de Munique?",
+    "opcoes": [
+      "Alemanha",
+      "França",
+      "Espanha",
+      "Portugal"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 175,
+    "categoria": "Clubes",
+    "pergunta": "De qual país é o Liverpool?",
+    "opcoes": [
+      "Inglaterra",
+      "Espanha",
+      "Itália",
+      "Alemanha"
+    ],
+    "resposta": "Inglaterra",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 176,
+    "categoria": "Clubes",
+    "pergunta": "De qual país é o Paris Saint-Germain?",
+    "opcoes": [
+      "França",
+      "Espanha",
+      "Inglaterra",
+      "Portugal"
+    ],
+    "resposta": "França",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 177,
+    "categoria": "Regras",
+    "pergunta": "O que é um 'hat-trick' no futebol?",
+    "opcoes": [
+      "Marcar 2 gols na mesma partida",
+      "Marcar 3 gols na mesma partida",
+      "Dar 3 assistências",
+      "Marcar 1 gol de falta"
+    ],
+    "resposta": "Marcar 3 gols na mesma partida",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 178,
+    "categoria": "Regras",
+    "pergunta": "Qual é o nome dado a um gol marcado diretamente de escanteio?",
+    "opcoes": [
+      "Gol de placa",
+      "Gol olímpico",
+      "Gol de bicicleta",
+      "Gol contra"
+    ],
+    "resposta": "Gol olímpico",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 179,
+    "categoria": "Regras",
+    "pergunta": "Como se chama o gol marcado pelo próprio jogador contra o seu time?",
+    "opcoes": [
+      "Gol de ouro",
+      "Gol contra",
+      "Gol de prata",
+      "Gol olímpico"
+    ],
+    "resposta": "Gol contra",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 180,
+    "categoria": "Regras",
+    "pergunta": "Qual posição joga normalmente mais próximo do meio-campo, ajudando na criação de jogadas?",
+    "opcoes": [
+      "Goleiro",
+      "Zagueiro",
+      "Meia",
+      "Centroavante"
+    ],
+    "resposta": "Meia",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 181,
+    "categoria": "Regras",
+    "pergunta": "Qual é o nome dado ao jogo eliminatório em que quem perde sai da competição?",
+    "opcoes": [
+      "Pontos corridos",
+      "Mata-mata",
+      "Fase de liga",
+      "Turno e returno"
+    ],
+    "resposta": "Mata-mata",
+    "dificuldade": "fácil"
+  },
+  {
+    "id": 182,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 1994?",
+    "opcoes": [
+      "Coreia do Sul e Japão",
+      "Espanha",
+      "Inglaterra",
+      "Estados Unidos"
+    ],
+    "resposta": "Estados Unidos",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 183,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 2002?",
+    "opcoes": [
+      "Estados Unidos",
+      "França",
+      "Inglaterra",
+      "Coreia do Sul e Japão"
+    ],
+    "resposta": "Coreia do Sul e Japão",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 184,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 2006?",
+    "opcoes": [
+      "Brasil",
+      "Inglaterra",
+      "Itália",
+      "Alemanha"
+    ],
+    "resposta": "Alemanha",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 185,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 2018?",
+    "opcoes": [
+      "Coreia do Sul e Japão",
+      "Espanha",
+      "Rússia",
+      "Itália"
+    ],
+    "resposta": "Rússia",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 186,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 1950?",
+    "opcoes": [
+      "Brasil",
+      "França",
+      "Inglaterra",
+      "Espanha"
+    ],
+    "resposta": "Brasil",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 187,
+    "categoria": "Copa do Mundo",
+    "pergunta": "Qual país (ou países) sediou(aram) a Copa do Mundo masculina de 1966?",
+    "opcoes": [
+      "França",
+      "Inglaterra",
+      "Rússia",
+      "Estados Unidos"
+    ],
+    "resposta": "Inglaterra",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 188,
+    "categoria": "Champions League",
+    "pergunta": "Quantos gols Lionel Messi tem na Champions League (estatística histórica UEFA)?",
+    "opcoes": [
+      "129",
+      "120",
+      "131",
+      "140"
+    ],
+    "resposta": "129",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 189,
+    "categoria": "Champions League",
+    "pergunta": "Quantos gols Robert Lewandowski tem na Champions League (estatística histórica UEFA)?",
+    "opcoes": [
+      "107",
+      "100",
+      "110",
+      "105"
+    ],
+    "resposta": "107",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 190,
+    "categoria": "Copa América",
+    "pergunta": "Quantos títulos a Argentina conquistou ao vencer a Copa América 2024 (recorde, 16º)?",
+    "opcoes": [
+      "18",
+      "16",
+      "15",
+      "17"
+    ],
+    "resposta": "16",
+    "dificuldade": "difícil"
+  },
+  {
+    "id": 191,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'La Albiceleste'?",
+    "opcoes": [
+      "França",
+      "Argentina",
+      "Bélgica",
+      "Portugal"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 192,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'Les Bleus'?",
+    "opcoes": [
+      "Suécia",
+      "França",
+      "Itália",
+      "Alemanha"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 193,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'La Albiceleste'?",
+    "opcoes": [
+      "Croácia",
+      "Argentina",
+      "Alemanha",
+      "Espanha"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 194,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'Les Bleus'?",
+    "opcoes": [
+      "Portugal",
+      "Espanha",
+      "Holanda",
+      "França"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 195,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'La Albiceleste'?",
+    "opcoes": [
+      "Chile",
+      "Inglaterra",
+      "Alemanha",
+      "Argentina"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 196,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'Les Bleus'?",
+    "opcoes": [
+      "Suíça",
+      "Espanha",
+      "Itália",
+      "França"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 197,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'La Albiceleste'?",
+    "opcoes": [
+      "Argentina",
+      "Croácia",
+      "Holanda",
+      "Suécia"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 198,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'Les Bleus'?",
+    "opcoes": [
+      "Inglaterra",
+      "Alemanha",
+      "França",
+      "Portugal"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 199,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'La Albiceleste'?",
+    "opcoes": [
+      "Argentina",
+      "Holanda",
+      "Japão",
+      "Portugal"
+    ],
+    "resposta": "Argentina",
+    "dificuldade": "médio"
+  },
+  {
+    "id": 200,
+    "categoria": "Seleções",
+    "pergunta": "Qual seleção é chamada de 'Les Bleus'?",
+    "opcoes": [
+      "Suíça",
+      "Itália",
+      "Chile",
+      "França"
+    ],
+    "resposta": "França",
+    "dificuldade": "médio"
+  }
 ]
